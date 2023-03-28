@@ -1,0 +1,45 @@
+{
+  "name": "duminy-troue",
+  "version": "1.0.0",
+  "description": "Theunis en Mignon se trou webiste ",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon index.js",
+    "start:prod": "NODE_ENV=production nodemon index.js",
+    "debug": "ndb index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theunisduminy/duminy-troue.git"
+  },
+  "author": "Theunis Duminy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theunisduminy/duminy-troue/issues"
+  },
+  "homepage": "https://github.com/theunisduminy/duminy-troue#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.14",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.12",
+    "slugify": "^1.6.5",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.25.1",
+    "ndb": "^1.1.5",
+    "prettier": "^2.4.1"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}
