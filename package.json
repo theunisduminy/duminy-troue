@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Theunis en Mignon se trou webiste ",
   "main": "server.js",
-  "types": "index.js",
   "scripts": {
     "start:dev": "nodemon index.js",
     "start:prod": "NODE_ENV=production nodemon index.js",

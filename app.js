@@ -4,7 +4,6 @@ const morgan = require('morgan');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const guestRouter = require('./routes/guestRoutes');
-const homePage = require('./pages/index');
 
 const app = express();
 
@@ -21,7 +20,6 @@ app.use((req, res, next) => {
 });
 
 // ROUTES
-app.use('/', homePage);
 app.use('/api/v1/guests', guestRouter);
 
 app.all('*', (req, res, next) => {
