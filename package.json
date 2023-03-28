@@ -2,11 +2,16 @@
   "name": "duminy-troue",
   "version": "1.0.0",
   "description": "Theunis en Mignon se trou webiste ",
-  "main": "index.js",
+  "main": "server.js",
+  "types": "index.js",
   "scripts": {
     "start:dev": "nodemon index.js",
     "start:prod": "NODE_ENV=production nodemon index.js",
-    "debug": "ndb index.js"
+    "debug": "ndb index.js",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "repository": {
     "type": "git",
@@ -23,7 +28,10 @@
     "express": "^4.17.1",
     "mongoose": "^5.13.14",
     "morgan": "^1.10.0",
+    "next": "^13.2.4",
     "nodemon": "^2.0.12",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "slugify": "^1.6.5",
     "validator": "^13.7.0"
   },
