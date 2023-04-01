@@ -1,6 +1,6 @@
 const Guest = require('../models/guestModel');
 const APIFeatures = require('../utils/apiFeatures');
-// const AppError = require('../utils/appError');
+const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 
 exports.getAllGuests = catchAsync(
@@ -28,32 +28,53 @@ exports.getAllGuests = catchAsync(
   },
 );
 
-/*
-exports.getUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is under construction',
-  });
-};
+exports.getGuest = catchAsync(async (req, res, next) => {
+  const { name } = req.params;
 
-exports.createUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is under construction',
-  });
-};
+  const guest = await Guest.findOne({ first_name: name });
 
-exports.deleteUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is under construction',
-  });
-};
+  if (!guest) {
+    return next(
+      new AppError(
+        `No guest found with name: ${name}`,
+        404,
+      ),
+    );
+  }
 
-exports.updateUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is under construction',
+  res.status(200).json({
+    status: 'success',
+    data: {
+      guest,
+    },
   });
-};
-*/
+});
+
+exports.updateGuest = catchAsync(async (req, res, next) => {
+  const { name } = req.params;
+  const updatedGuest = await Guest.findOneAndUpdate(
+    { first_name: name },
+    req.body,
+    {
+      new: true,
+      runValidators: true,
+    },
+  );
+
+  if (!updatedGuest) {
+    // this was !guest
+    return next(
+      new AppError(
+        `No guest found with ID: ${req.params.id}`,
+        404,
+      ),
+    );
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      guest: updatedGuest,
+    },
+  });
+});

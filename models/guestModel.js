@@ -1,96 +1,87 @@
+/* eslint-disable no-useless-escape */
 const mongoose = require('mongoose');
 const slugify = require('slugify');
 const validator = require('validator');
 
+const validateEmail = function (email) {
+  const re =
+    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  return re.test(email);
+};
+
 const guestSchema = new mongoose.Schema(
   {
-    name: {
+    first_name: {
       type: String,
-      required: [true, 'A guest must have a name'],
+      required: [true, 'A guest must have a first name'],
       unique: false,
       trim: true,
       maxLength: [
         40,
-        'A tour name must have less or equal than 40 characters',
+        'A first name must have less or equal than 40 characters',
       ],
       minLength: [
         2,
-        'A tour name must have more or equal than 10 characters',
+        'A first name must have more or equal than 10 characters',
       ],
       validate: [
         validator.isAlpha,
-        'Guest name must only contain characters',
+        'Guest first name must only contain characters',
+      ],
+    },
+    last_name: {
+      type: String,
+      required: [true, 'A guest must have a last name'],
+      unique: false,
+      trim: true,
+      maxLength: [
+        40,
+        'A last name must have less or equal than 40 characters',
+      ],
+      minLength: [
+        2,
+        'A last name must have more or equal than 10 characters',
+      ],
+      validate: [
+        validator.isAlpha,
+        'Guest last name must only contain characters',
       ],
     },
     slug: {
       type: String,
       unique: true,
     },
-    duration: {
-      type: Number,
-      required: [true, 'A tour must have a duration'],
-    },
-    maxGroupSize: {
-      type: Number,
-      required: [true, 'A tour must have a group size'],
-    },
-    difficulty: {
-      type: String,
-      required: [true, 'A tour must have a difficulty'],
-      enum: {
-        values: ['easy', 'medium', 'difficult'],
-        message:
-          'Difficulty is either: easy, medium, difficult',
-      },
-    },
-    ratingsAverage: {
-      type: Number,
-      default: 4.5,
-      min: [1, 'Rating must be above 1.0'],
-      max: [5, 'Rating must be below 5.0'],
-    },
-    ratingsQuantity: {
-      type: Number,
-      default: 0,
-    },
-    price: {
-      type: Number,
-      required: [true, 'A tour must have a price'],
-    },
-    priceDiscount: {
-      type: Number,
-      validate: {
-        validator: function (val) {
-          // this only points to current doc on NEW document creation
-          return val < this.price;
-        },
-        message:
-          'Discount price ({VALUE}) should be below regular price',
-      },
-    },
-    summary: {
+    email: {
       type: String,
       trim: true,
-      required: [true, 'A tour must have a summary'],
+      lowercase: true,
+      unique: true,
+      required: 'Email address is required',
+      validate: [
+        validateEmail,
+        'Please fill a valid email address',
+      ],
+      match: [
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        'Please fill a valid email address',
+      ],
     },
-    description: {
+    guest_message: {
       type: String,
+      default:
+        'Kan nie wag om ons groot dag saam jou te deel nie!',
       trim: true,
+      required: [true, 'A guest must have a message'],
     },
-    imageCover: {
-      type: String,
-      required: [true, 'A tour must have a cover image'],
-    },
-    images: [String],
     createdAt: {
       type: Date,
       default: Date.now(),
       select: false,
     },
-    startDates: [Date],
-    secretTour: {
+    rsvp: {
       type: Boolean,
       default: false,
+      required: [true, 'RSP must exist'],
     },
   },
   {
@@ -98,10 +89,6 @@ const guestSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   },
 );
-
-guestSchema.virtual('durationWeeks').get(function () {
-  return this.duration / 7;
-});
 
 // Document middleware: runs before .save() and .create() ! and .create()
 guestSchema.pre('save', function (next) {
@@ -123,16 +110,6 @@ guestSchema.post(/^find/, function (docs, next) {
   );
   next();
 });
-
-/*
-// AGGREGATION MIDDLEWARE
-guestSchema.pre('aggregate', function (next) {
-  this.pipeline().unshift({
-    $match: { secretTour: { $ne: true } },
-  }),
-    next();
-});
-*/
 
 const Guest = mongoose.model('Guest', guestSchema);
 

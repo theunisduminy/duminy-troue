@@ -29,7 +29,7 @@ exports.getAllGuests = catchAsync(
 );
 
 exports.getGuest = catchAsync(async (req, res, next) => {
-  const guest = await Guest.findById(req.params.id);
+  const guest = await Guest.findOne(req.params.name);
 
   if (!guest) {
     return next(

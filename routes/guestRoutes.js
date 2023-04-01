@@ -4,14 +4,10 @@ const guestController = require('../controllers/guestController');
 const router = express.Router();
 
 router.route('/').get(guestController.getAllGuests);
-// .post(guestController.createUser);
 
-/*
 router
-  .route('/:id')
-  .get(guestController.getUser)
-  .patch(guestController.updateUser)
-  .delete(guestController.deleteUser);
-*/
+  .route('/:name')
+  .get(guestController.getGuest)
+  .patch(guestController.updateGuest);
 
 module.exports = router;
