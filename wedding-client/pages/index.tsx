@@ -50,19 +50,14 @@ export default function Home({
         </div> */}
 
         <div className={styles.grid}>
-          <a href='https://nextjs.org/docs' className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+          <a href='/rsvp' className={styles.card}>
+            <h3>RSVP &rarr;</h3>
+            <p>Laat weet of jy en jou metgesel kan kom.</p>
           </a>
 
           <a href='https://nextjs.org/learn' className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a href='https://github.com/vercel/next.js/tree/canary/examples' className={styles.card}>
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+            <h3>Registry &rarr;</h3>
+            <p>Goedjies wat ons graag soek, meestal Mignon.</p>
           </a>
 
           <a

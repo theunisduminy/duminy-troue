@@ -40,14 +40,6 @@ export default function Rsvp({
         <div>
           <Form />
         </div>
-
-        {/* <p className={styles.description}>
-          Die troue is in{' '}
-          <a href="https://www.google.com/maps/place/Lord+Milner+Hotel+(Matjiesfontein)/@-33.2310257,20.5799933,17z/data=!3m1!4b1!4m9!3m8!1s0x1dd3110f98e906e5:0x40d4cb7334e175dd!5m2!4m1!1i2!8m2!3d-33.2310302!4d20.582182!16s%2Fg%2F1tc_hj29">
-            Matjiesfontein
-          </a>{' '}
-          as jy nog nie dit uitgefigure het nie 😄
-        </p> */}
       </main>
 
       <footer>

@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import styles from '@/../styles/Form.module.css';
+import homeStyles from '@/../styles/Home.module.css';
 import { log } from 'console';
 
 export default function Form() {
   const [name, setName] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
-  const [guestDetails, setGuestDetails] = useState({});
+  const [guestDetails, setGuestDetails] = useState<Record<string, any>>({});
+  const [error, setError] = useState<string>('');
 
   const nameWithoutSpacesOrCaps = name.replace(/\s+/g, '-').toLowerCase();
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
+    setError('');
   };
 
   const handleSelectChange = (event: any) => {
@@ -28,13 +31,13 @@ export default function Form() {
       setGuestDetails(guest);
 
       if (guest.status !== 'success' || selectedOption === '') {
-        alert('Onthou om als reg in te vul.');
+        setError('Kyk of jou naam reggespel is.');
       } else {
         setSubmitted(true);
       }
     } catch (error) {
       console.error(error);
-      alert('Er is iets misgegaan. Probeer het later opnieuw.');
+      setError('Kyk of jou naam reggespel is.');
     }
   };
 
@@ -89,7 +92,7 @@ export default function Form() {
                   onChange={handleSelectChange}
                 />
                 <span className={styles.slider}>
-                  <i className='fa fa-check'></i>
+                  Yebo <i className='fa fa-check'></i>
                 </span>
               </label>
               <label className={`${styles.switch} ${styles.two}`}>
@@ -100,7 +103,7 @@ export default function Form() {
                   onChange={handleSelectChange}
                 />
                 <span className={styles.slider}>
-                  <i className='fa fa-times'></i>
+                  Nope <i className='fa fa-times'></i>
                 </span>
               </label>
             </div>
@@ -112,8 +115,29 @@ export default function Form() {
         </form>
       )}
 
+      {error !== '' && (
+        <div className={styles.error}>
+          <label>{`${error}`}</label>
+        </div>
+      )}
+
       {submitted && <label className={styles.label}>Dankie {`${name}`}</label>}
-      {submitted && <label className={styles.label}>{`${guestDetails.data.guest.message}`}</label>}
+      {submitted && (
+        <div>
+          <label className={homeStyles.label}>{`${guestDetails.data.guest.message}`}</label>
+          <div className={homeStyles.grid}>
+            <a href='/' className={homeStyles.card}>
+              <h3>Take me home &rarr;</h3>
+              <p>Contry road, to the place, where I beloooong</p>
+            </a>
+
+            <a href='https://nextjs.org/learn' className={homeStyles.card}>
+              <h3>Registry &rarr;</h3>
+              <p>Goedjies wat ons graag soek, meestal Mignon.</p>
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

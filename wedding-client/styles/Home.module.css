@@ -13,7 +13,7 @@
 }
 
 .description a {
-  color: #0070f3;
+  color: #6b7b74;
   text-decoration: none;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .title a {
-  color: #0070f3;
+  color: #6b7b74;
   text-decoration: none;
 }
 
@@ -39,7 +39,8 @@
   line-height: 1.15;
   font-size: 4rem;
   padding-top: 5%;
-  color: #85969a;
+  /* color: #85969a; */
+  color: #899481;
 }
 
 .title,
@@ -50,13 +51,15 @@
 
 .subtitle {
   font-size: 2rem;
-  color: #85969a;
+  /* color: #85969a; */
+  color: #899481;
 }
 
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
-  color: #85969a;
+  /* color: #85969a; */
+  color: #899481;
 }
 
 .grid {
@@ -64,19 +67,19 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-
   max-width: 800px;
   margin-top: 3rem;
 }
 
 .card {
+  background-color: #f1cdcd;
   margin: 1rem;
   flex-basis: 45%;
   padding: 1.5rem;
   text-align: center;
   color: inherit;
   text-decoration: none;
-  border: 1px solid #eaeaea;
+  border: 1px solid #85969a;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
@@ -84,8 +87,8 @@
 .card:hover,
 .card:focus,
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+  color: #fff;
+  border-color: #6b7b74;
 }
 
 .card h3 {
@@ -107,6 +110,23 @@
   .grid {
     width: 100%;
     flex-direction: column;
+    max-width: 500px;
+    flex-wrap: wrap;
+    margin-top: -20px;
+  }
+
+  .card {
+    margin: 16px 35px;
+  }
+
+  .card h3 {
+    font-size: 20px;
+    color: #403c46;
+  }
+
+  .card p {
+    font-size: 18px;
+    color: #403c46;
   }
 
   .vl {
@@ -119,6 +139,7 @@
   .container {
     padding: 0;
   }
+
   .hotel {
     padding: 0 5%;
   }
@@ -131,6 +152,6 @@
   .description {
     padding: 0 30px;
     font-size: 18px;
-    margin: -5px 0px 40px 0px;
+    margin: 5pxpx 0px 40px 0px;
   }
 }
