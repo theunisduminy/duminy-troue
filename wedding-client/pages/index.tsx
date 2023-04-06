@@ -3,20 +3,11 @@ import clientPromise from '../lib/mongodb';
 import { InferGetServerSidePropsType } from 'next';
 import styles from '@/../styles/Home.module.css';
 import React, { useState } from 'react';
-import Form from '../components/submitName';
 
 // context
 export async function getServerSideProps() {
   try {
     await clientPromise;
-    // `await clientPromise` will use the default database passed in the MONGODB_URI
-    // However you can use another database (e.g. myDatabase) by replacing the `await clientPromise` with the following code:
-    //
-    // `const client = await clientPromise`
-    // `const db = client.db("myDatabase")`
-    //
-    // Then you can execute queries against your database like so:
-    // db.find({}) or any of the MongoDB Node Driver commands
 
     return {
       props: { isConnected: true },
@@ -45,9 +36,6 @@ export default function Home({
           Mignon du Plessis & Theunis Duminy trou!<br></br>
         </h1>
         <p className={styles.description}>22-24 Maart, 2024</p>
-        {/* <div>
-          <Form />
-        </div> */}
 
         <div className={styles.grid}>
           <a href='/rsvp' className={styles.card}>
@@ -57,7 +45,7 @@ export default function Home({
 
           <a href='https://nextjs.org/learn' className={styles.card}>
             <h3>Registry &rarr;</h3>
-            <p>Goedjies wat ons graag soek, meestal Mignon.</p>
+            <p>Goed wat Mignon sê ons nodig het, blykbaar.</p>
           </a>
 
           <a

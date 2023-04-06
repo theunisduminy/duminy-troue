@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styles from '@/../styles/Form.module.css';
 import homeStyles from '@/../styles/Home.module.css';
-import { log } from 'console';
+import { getGuest } from '../lib/utils/getGuest';
+import { updateGuest } from '../lib/utils/getGuest';
 
 export default function Form() {
   const [name, setName] = useState('');
@@ -9,8 +10,6 @@ export default function Form() {
   const [selectedOption, setSelectedOption] = useState('');
   const [guestDetails, setGuestDetails] = useState<Record<string, any>>({});
   const [error, setError] = useState<string>('');
-
-  const nameWithoutSpacesOrCaps = name.replace(/\s+/g, '-').toLowerCase();
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -24,9 +23,11 @@ export default function Form() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    const rsvpDecision = selectedOption === 'yes' ? true : false;
+
     try {
-      const updatedGuest = await updateGuest(nameWithoutSpacesOrCaps);
-      const guest = await getGuest(nameWithoutSpacesOrCaps);
+      const updatedGuest = await updateGuest(name, rsvpDecision);
+      const guest = await getGuest(name);
 
       setGuestDetails(guest);
 
@@ -41,29 +42,6 @@ export default function Form() {
     }
   };
 
-  const getGuest = async (nameWithoutSpacesOrCaps: string) => {
-    const response = await fetch(`/api/guests/${nameWithoutSpacesOrCaps || 'wrong'}`, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'GET',
-    });
-
-    return response.json();
-  };
-
-  const updateGuest = async (nameWithoutSpacesOrCaps: string) => {
-    const response = await fetch(`/api/guests/${nameWithoutSpacesOrCaps || 'wrong'}`, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ rsvp: true }),
-      method: 'PATCH',
-    });
-
-    return response.json();
-  };
-
   return (
     <div>
       {!submitted && (
@@ -76,6 +54,11 @@ export default function Form() {
             value={name}
             onChange={handleNameChange}
           />
+          {error !== '' && (
+            <div className={styles.error}>
+              <label>{`${error}`}</label>
+            </div>
+          )}
           <div className={styles.vl}></div>
           <div>
             <label className={styles.label} htmlFor='name'>
@@ -115,16 +98,10 @@ export default function Form() {
         </form>
       )}
 
-      {error !== '' && (
-        <div className={styles.error}>
-          <label>{`${error}`}</label>
-        </div>
-      )}
-
       {submitted && <label className={styles.label}>Dankie {`${name}`}</label>}
       {submitted && (
-        <div>
-          <label className={homeStyles.label}>{`${guestDetails.data.guest.message}`}</label>
+        <div className={styles.personalMessage}>
+          <label>{`${guestDetails.data.guest.message}`}</label>
           <div className={homeStyles.grid}>
             <a href='/' className={homeStyles.card}>
               <h3>Take me home &rarr;</h3>
@@ -133,7 +110,7 @@ export default function Form() {
 
             <a href='https://nextjs.org/learn' className={homeStyles.card}>
               <h3>Registry &rarr;</h3>
-              <p>Goedjies wat ons graag soek, meestal Mignon.</p>
+              <p>Goed wat Mignon sê ons nodig het, blykbaar.</p>
             </a>
           </div>
         </div>

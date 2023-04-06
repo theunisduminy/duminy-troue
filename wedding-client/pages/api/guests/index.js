@@ -1,7 +1,4 @@
 import clientPromise from '../../../lib/mongodb';
-// import APIFeatures from '../../lib/utils/apiFeatures';
-// import catchAsync from '../../lib/utils/catchAsync';
-// import GuestModel from '../../lib/models/guestModel';
 
 export default async (req, res) => {
   try {
