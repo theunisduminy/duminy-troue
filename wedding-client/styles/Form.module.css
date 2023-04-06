@@ -1,0 +1,139 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  margin-top: 5%;
+}
+
+.label {
+  margin-top: 5% 0;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #85969a;
+}
+
+.input {
+  padding: 1rem;
+  border: none;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
+  width: 50rem;
+  /* max-width: 20rem; */
+  font-size: 2rem;
+  color: #85969a;
+  font-family: Varela Round;
+}
+
+.mySelect {
+  padding: 10px;
+  font-size: 2rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  width: 50rem;
+}
+
+.mySelect:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+@media only screen and (max-width: 600px) {
+  .input {
+    width: 100%;
+    font-size: 18px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .vl {
+    border-left: 3px solid #f1cdcd;
+    height: 25px;
+    position: relative;
+    margin: 20px 50%;
+  }
+
+  .fa {
+    font-size: 25px !important;
+  }
+
+  .form {
+    padding: 0 30px;
+    display: block;
+  }
+
+  .label {
+    display: block;
+    font-size: 18px;
+    margin: 15px 0px;
+    text-align: center;
+  }
+
+  .mySelect {
+    padding: 10px;
+    font-family: Varela Round;
+    color: #85969a;
+    border: 1px solid #ccc;
+    margin: 0 0px;
+    font-size: 20px;
+    display: block;
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  .rsvp {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* toggle switch */
+
+  /* Set the width and height of the toggle switch */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 40%;
+    height: 50px;
+    margin: 5px;
+  }
+
+  /* Hide the default checkbox */
+  .switch input {
+    display: none;
+  }
+
+  /* Style the switch handle */
+  .switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 20px;
+    transition: 0.4s;
+    text-align: center;
+    padding-top: 12px;
+  }
+
+  /* Style the switch handle when checked */
+  .switch input:checked + .slider {
+    background-color: #f1cdcd;
+  }
+
+  /* Style the switch handle when sliding */
+  .switch input:focus + .slider {
+    box-shadow: 0 0 1px #f1cdcd;
+  }
+
+  /* Style the switch handle when hovering */
+  .switch .slider:hover {
+    opacity: 0.7;
+  }
+}

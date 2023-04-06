@@ -15,6 +15,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/guests.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/guests.js", "pages/rsvp/rsvp."],
   "exclude": ["node_modules"]
 }

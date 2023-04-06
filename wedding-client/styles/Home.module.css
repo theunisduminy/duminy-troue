@@ -39,20 +39,24 @@
   line-height: 1.15;
   font-size: 4rem;
   padding-top: 5%;
+  color: #85969a;
 }
 
 .title,
 .description {
   text-align: center;
+  max-width: 50rem;
 }
 
 .subtitle {
   font-size: 2rem;
+  color: #85969a;
 }
 
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
+  color: #85969a;
 }
 
 .grid {
@@ -69,7 +73,7 @@
   margin: 1rem;
   flex-basis: 45%;
   padding: 1.5rem;
-  text-align: left;
+  text-align: center;
   color: inherit;
   text-decoration: none;
   border: 1px solid #eaeaea;
@@ -99,9 +103,34 @@
   height: 1em;
 }
 
-@media (max-width: 600px) {
+@media only screen and (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+
+  .vl {
+    border-left: 3px solid #f1cdcd;
+    height: 30px;
+    position: relative;
+    margin: 10px 30px;
+  }
+
+  .container {
+    padding: 0;
+  }
+  .hotel {
+    padding: 0 5%;
+  }
+
+  .title {
+    padding: 4% 30px;
+    font-size: 30px;
+  }
+
+  .description {
+    padding: 0 30px;
+    font-size: 18px;
+    margin: -5px 0px 40px 0px;
   }
 }
