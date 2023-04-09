@@ -13,7 +13,7 @@
 }
 
 .description a {
-  color: #6b7b74;
+  color: #4077a9;
   text-decoration: none;
 }
 
@@ -144,6 +144,11 @@
     padding: 0 5%;
   }
 
+  .wheat {
+    width: 100%;
+    margin-bottom: -32px;
+  }
+
   .title {
     padding: 4% 30px;
     font-size: 30px;
@@ -151,7 +156,7 @@
 
   .description {
     padding: 0 30px;
-    font-size: 18px;
-    margin: 5pxpx 0px 40px 0px;
+    font-size: 20px;
+    margin: 5px 0px 40px 0px;
   }
 }

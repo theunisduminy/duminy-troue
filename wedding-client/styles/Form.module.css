@@ -50,6 +50,67 @@
   font-size: 15px;
 }
 
+/* toggle switch */
+
+/* Set the width and height of the toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  height: 50px;
+  margin: 20px;
+  padding: 50px;
+  padding-top: 12px;
+  font-size: 25px;
+}
+
+/* Hide the default checkbox */
+.switch input {
+  display: none;
+}
+
+/* Style the switch handle */
+.switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 20px;
+  transition: 0.4s;
+  text-align: center;
+  padding-top: 12px;
+}
+
+/* Style the switch handle when checked */
+.switch input:checked + .slider {
+  background-color: #f1cdcd;
+}
+
+/* Style the switch handle when sliding */
+.switch input:focus + .slider {
+  box-shadow: 0 0 1px #f1cdcd;
+}
+
+/* Style the switch handle when hovering */
+.switch .slider:hover {
+  opacity: 0.7;
+}
+
+.vl {
+  border-left: 8px solid #f1cdcd;
+  height: 100px;
+  position: relative;
+  margin: 5% 50%;
+}
+
+.rsvp {
+  display: flex;
+  justify-content: center;
+}
+
 @media only screen and (max-width: 600px) {
   .personalMessage {
     color: #85969a;
@@ -57,7 +118,7 @@
   }
 
   .personalMessage label {
-    margin: 20px 30px;
+    margin: 15% 30px;
     display: block;
     font-size: 18px;
   }
@@ -118,6 +179,8 @@
     width: 40%;
     height: 50px;
     margin: 5px;
+    padding: 0px;
+    font-size: 16px;
   }
 
   /* Hide the default checkbox */

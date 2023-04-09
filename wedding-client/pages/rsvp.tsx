@@ -3,7 +3,7 @@ import clientPromise from '../lib/mongodb';
 import { InferGetServerSidePropsType } from 'next';
 import styles from '@/../styles/Home.module.css';
 import React, { useState } from 'react';
-import Form from '../components/submitName';
+import Form from '../components/submitRsvp';
 
 // context
 export async function getServerSideProps() {
@@ -33,9 +33,6 @@ export default function Rsvp({
 
       <main>
         <img src='/lord-milner-signed.png' className={styles.hotel} />
-        <h1 className={styles.title}>
-          Ons is so opgewonde om die groot dag saam jou te deel.<br></br>
-        </h1>
 
         <div>
           <Form />
