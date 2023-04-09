@@ -90,7 +90,7 @@ export default function RsvpForm() {
                   onChange={handleSelectChange}
                 />
                 <span className={styles.slider}>
-                  Yebo <i className='fa fa-check'></i>
+                  Ja <i className='fa fa-check'></i>
                 </span>
               </label>
               <label className={`${styles.switch} ${styles.two}`}>
@@ -101,7 +101,7 @@ export default function RsvpForm() {
                   onChange={handleSelectChange}
                 />
                 <span className={styles.slider}>
-                  Nope <i className='fa fa-times'></i>
+                  Nee <i className='fa fa-times'></i>
                 </span>
               </label>
             </div>

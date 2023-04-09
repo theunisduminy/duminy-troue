@@ -32,7 +32,7 @@ export default function extraGuest(withSomeone: boolean, guestDetails: Record<st
   if (withSomeone && !successfulRsvpForExtraGuests) {
     return (
       <form onSubmit={handleSubmit}>
-        <div className={styles.personalMessage}>
+        <div className={styles.extraRsvp}>
           <label className={styles.label}>
             Terwyl jy hier is, wil jy sommer vir hierdie{' '}
             {guestDetails.data.guest.saam_wie.length > 1 ? 'mense' : 'mens'} ook RSVP?

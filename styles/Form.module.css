@@ -112,6 +112,17 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .extraRsvp {
+    color: #85969a;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+
+  .extraRsvp p {
+    margin: 0px;
+  }
+
   .personalMessage {
     color: #85969a;
     text-align: center;
@@ -132,9 +143,9 @@
 
   .vl {
     border-left: 3px solid #f1cdcd;
-    height: 25px;
+    height: 30px;
     position: relative;
-    margin: 20px 50%;
+    margin: 10px 50%;
   }
 
   .fa {
@@ -149,7 +160,7 @@
   .label {
     display: block;
     font-size: 18px;
-    margin: 15px 0px;
+    margin: 15px 30px;
     text-align: center;
   }
 
