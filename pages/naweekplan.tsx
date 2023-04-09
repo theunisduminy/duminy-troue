@@ -21,7 +21,7 @@ export async function getServerSideProps() {
   }
 }
 
-export default function Rsvp({
+export default function Naweekplan({
   isConnected,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
@@ -32,16 +32,10 @@ export default function Rsvp({
       </Head>
 
       <main>
-        <div className={styles.homeNav}>
-          <a href='/'>
-            <i className='fa fa-arrow-left'></i> Back to Home
-          </a>
-        </div>
-
         <img src='/lord-milner-signed.png' className={styles.hotel} />
 
         <div>
-          <Form />
+          <h1 className={styles.title}>Under construction</h1>
         </div>
       </main>
 

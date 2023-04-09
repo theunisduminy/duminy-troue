@@ -56,7 +56,7 @@ export default function RsvpForm() {
     <div>
       {!submitted && (
         <h1 className={homeStyles.title}>
-          Ons is so opgewonde om die groot dag saam jou te deel.<br></br>
+          Laat weet of jy die naweek sal kan bywoon.<br></br>
         </h1>
       )}
       {!submitted && (

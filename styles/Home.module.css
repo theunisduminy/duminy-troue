@@ -39,7 +39,6 @@
   line-height: 1.15;
   font-size: 4rem;
   padding-top: 5%;
-  /* color: #85969a; */
   color: #899481;
 }
 
@@ -51,14 +50,12 @@
 
 .subtitle {
   font-size: 2rem;
-  /* color: #85969a; */
   color: #899481;
 }
 
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
-  /* color: #85969a; */
   color: #899481;
 }
 
@@ -106,6 +103,13 @@
   height: 1em;
 }
 
+.homeNav {
+  color: #6b7b74;
+  margin: -10px 0px 20px 0px;
+  text-align: center;
+  font-weight: 600;
+}
+
 @media only screen and (max-width: 600px) {
   .grid {
     width: 100%;
@@ -131,9 +135,10 @@
 
   .vl {
     border-left: 3px solid #f1cdcd;
-    height: 30px;
+    height: 50px;
     position: relative;
     margin: 10px 30px;
+    margin: 10px 50%;
   }
 
   .container {
@@ -144,14 +149,9 @@
     padding: 0 5%;
   }
 
-  .wheat {
-    width: 100%;
-    margin-bottom: -32px;
-  }
-
   .title {
     padding: 4% 30px;
-    font-size: 25px;
+    font-size: 27px;
   }
 
   .description {
