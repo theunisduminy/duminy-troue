@@ -1,0 +1,55 @@
+/* DESKTOP */
+
+.hotel {
+  width: 100%;
+  padding: 0 15%;
+}
+
+.title a {
+  color: #6b7b74;
+  text-decoration: none;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+  text-decoration: underline;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+  padding-top: 5%;
+  color: #899481;
+}
+
+.title,
+.description {
+  text-align: center;
+  max-width: 50rem;
+}
+
+.homeNav {
+  color: #6b7b74;
+  text-align: center;
+  font-weight: 600;
+  margin-top: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* MOBILE */
+
+@media only screen and (max-width: 600px) {
+  .hotel {
+    padding: 0 5%;
+  }
+
+  .title {
+    padding: 4% 30px;
+    font-size: 27px;
+  }
+}

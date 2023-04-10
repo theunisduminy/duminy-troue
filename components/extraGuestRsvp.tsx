@@ -17,10 +17,12 @@ export default function extraGuest(withSomeone: boolean, guestDetails: Record<st
     const guestsToRsvpFor = guestDetails.data.guest.saam_wie;
 
     try {
-      guestsToRsvpFor.map(async (person: string) => {
-        const rsvpDecision = true;
-        await updateGuest(person, rsvpDecision);
-      });
+      if (successfulRsvpForExtraGuests) {
+        guestsToRsvpFor.map(async (person: string) => {
+          const rsvpDecision = true;
+          await updateGuest(person, rsvpDecision);
+        });
+      }
     } catch (error) {
       console.error(error);
       return;
@@ -81,8 +83,6 @@ export default function extraGuest(withSomeone: boolean, guestDetails: Record<st
       </form>
     );
   } else {
-    return (
-      successfulRsvpForExtraGuests && successfulRsvp(guestDetails, guestDetails.data.guest.name)
-    );
+    return successfulRsvpForExtraGuests && successfulRsvp(guestDetails);
   }
 }

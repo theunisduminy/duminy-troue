@@ -2,10 +2,8 @@ import Head from 'next/head';
 import clientPromise from '../lib/mongodb';
 import { InferGetServerSidePropsType } from 'next';
 import styles from '@/../styles/Home.module.css';
-import React, { useState } from 'react';
-import Form from '../components/submitRsvp';
+import Header from '../components/header';
 
-// context
 export async function getServerSideProps() {
   try {
     await clientPromise;
@@ -31,13 +29,7 @@ export default function Naweekplan({
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main>
-        <img src='/lord-milner-signed.png' className={styles.hotel} />
-
-        <div>
-          <h1 className={styles.title}>Under construction</h1>
-        </div>
-      </main>
+      <main>{Header('Under construction')}</main>
 
       <footer>
         <span>Gebou deur Theunis Duminy.</span>

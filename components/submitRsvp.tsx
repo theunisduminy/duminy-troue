@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import styles from '@/../styles/Form.module.css';
-import homeStyles from '@/../styles/Home.module.css';
 import { getGuest } from '../lib/utils/getGuest';
 import { updateGuest } from '../lib/utils/getGuest';
-import successfulRsvp from './successfulRsvp';
-import extraGuest from './extraGuest';
+import extraGuest from './extraGuestRsvp';
+import Header from './header';
 
 export default function RsvpForm() {
   const [name, setName] = useState('');
@@ -13,7 +12,6 @@ export default function RsvpForm() {
   const [guestDetails, setGuestDetails] = useState<Record<string, any>>({});
   const [withSomeone, setWithSomeone] = useState(false);
   const [error, setError] = useState<string>('');
-  const [showFinalMessage, setFinalMessage] = useState(false);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -30,7 +28,7 @@ export default function RsvpForm() {
     const rsvpDecision = selectedOption === 'yes' ? true : false;
 
     try {
-      const updatedGuest = await updateGuest(name, rsvpDecision);
+      await updateGuest(name, rsvpDecision);
       const guest = await getGuest(name);
 
       setGuestDetails(guest);
@@ -54,11 +52,7 @@ export default function RsvpForm() {
 
   return (
     <div>
-      {!submitted && (
-        <h1 className={homeStyles.title}>
-          Laat weet of jy die naweek sal kan bywoon.<br></br>
-        </h1>
-      )}
+      {Header('Laat weet of jy die naweek sal kan bywoon.', !submitted)}
       {!submitted && (
         <form className={styles.form} onSubmit={handleSubmit}>
           <input

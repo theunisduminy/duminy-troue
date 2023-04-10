@@ -1,7 +1,8 @@
 import styles from '@/../styles/Form.module.css';
-import homeStyles from '@/../styles/Home.module.css';
 
-export default function successfulRsvp(guestDetails: Record<string, any>, name: string) {
+import LinkCards from './linkCards';
+
+export default function successfulRsvp(guestDetails: Record<string, any>) {
   const personalMessage =
     guestDetails.data.guest.message !== null
       ? guestDetails.data.guest.message
@@ -12,17 +13,8 @@ export default function successfulRsvp(guestDetails: Record<string, any>, name: 
       {
         <div className={styles.personalMessage}>
           <label>{personalMessage}</label>
-          <div className={homeStyles.grid}>
-            <a href='/' className={homeStyles.card}>
-              <h3>Take me home &rarr;</h3>
-              <p>Gaan terug na daai eerste blad. Die Home page. Jy weet mos.</p>
-            </a>
-
-            <a href='https://nextjs.org/learn' className={homeStyles.card}>
-              <h3>Registry &rarr;</h3>
-              <p>Goed wat Mignon sê ons nodig het, blykbaar.</p>
-            </a>
-          </div>
+          {/* Cards for linking to other pages */}
+          {LinkCards({ showRsvp: false })}
         </div>
       }
     </div>

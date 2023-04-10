@@ -2,10 +2,8 @@ import Head from 'next/head';
 import clientPromise from '../lib/mongodb';
 import { InferGetServerSidePropsType } from 'next';
 import styles from '@/../styles/Home.module.css';
-import React, { useState } from 'react';
 import Form from '../components/submitRsvp';
 
-// context
 export async function getServerSideProps() {
   try {
     await clientPromise;
@@ -32,14 +30,6 @@ export default function Rsvp({
       </Head>
 
       <main>
-        <div className={styles.homeNav}>
-          <a href='/'>
-            <i className='fa fa-arrow-left'></i> Back to Home
-          </a>
-        </div>
-
-        <img src='/lord-milner-signed.png' className={styles.hotel} />
-
         <div>
           <Form />
         </div>
