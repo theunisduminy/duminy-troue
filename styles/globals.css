@@ -58,7 +58,7 @@ button:hover {
 
 @media only screen and (max-width: 600px) {
   main {
-    padding: 2rem 0;
+    padding: 0;
     display: block;
   }
 
@@ -78,7 +78,7 @@ button:hover {
 
   img {
     display: block;
-    margin: 10px auto;
+    margin: 5% auto;
   }
 
   footer {

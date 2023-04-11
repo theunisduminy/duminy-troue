@@ -34,7 +34,7 @@
   color: #6b7b74;
   text-align: center;
   font-weight: 600;
-  margin-top: -10px;
+  margin-top: 7%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,5 +51,9 @@
   .title {
     padding: 4% 30px;
     font-size: 27px;
+  }
+
+  .backLink {
+    font-size: 17px;
   }
 }

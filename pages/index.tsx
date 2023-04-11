@@ -25,6 +25,7 @@ export default function Home({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <div className={styles.container}>
+      <br></br>
       <Head>
         <title>Duminy Troue</title>
         <link rel='icon' href='/favicon.ico' />

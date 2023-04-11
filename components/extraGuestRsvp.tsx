@@ -6,6 +6,7 @@ import successfulRsvp from './successfulRsvp';
 export default function extraGuest(withSomeone: boolean, guestDetails: Record<string, any>) {
   const [selectedOption, setSelectedOption] = useState('');
   const [successfulRsvpForExtraGuests, setRsvpForExtraGuests] = useState(false);
+  const [error, setError] = useState<string>('');
 
   const handleSelectChange = (event: any) => {
     setSelectedOption(event.target.value);
@@ -13,16 +14,18 @@ export default function extraGuest(withSomeone: boolean, guestDetails: Record<st
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     const guestsToRsvpFor = guestDetails.data.guest.saam_wie;
 
+    if (selectedOption === '') {
+      setError('Geen opsie gekies nie.');
+      return;
+    }
+
     try {
-      if (successfulRsvpForExtraGuests) {
-        guestsToRsvpFor.map(async (person: string) => {
-          const rsvpDecision = true;
-          await updateGuest(person, rsvpDecision);
-        });
-      }
+      guestsToRsvpFor.map(async (person: string) => {
+        const rsvpDecision = true;
+        await updateGuest(person, rsvpDecision);
+      });
     } catch (error) {
       console.error(error);
       return;
@@ -80,6 +83,11 @@ export default function extraGuest(withSomeone: boolean, guestDetails: Record<st
         <button type='submit'>
           <i className='fa fa-arrow-right'></i>
         </button>
+        {error !== '' && (
+          <div className={styles.error}>
+            <label>{`${error}`}</label>
+          </div>
+        )}
       </form>
     );
   } else {

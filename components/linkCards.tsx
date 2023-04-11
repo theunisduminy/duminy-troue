@@ -15,12 +15,14 @@ export default function LinkCards({
 }: LinkCardsProps) {
   return (
     <div className={styles.grid}>
+      {/* Back to Home */}
       {showBackToHome && (
         <a href='/' className={styles.card}>
-          <h3>Take me home &rarr;</h3>
-          <p>Gaan terug na daai eerste blad. Die Home page. Jy weet mos.</p>
+          <h3>Tuis &rarr;</h3>
+          <p>Gaan terug na die eerste blad - die Home page.</p>
         </a>
       )}
+
       {/* RSVP */}
       {showRsvp && (
         <a href='/rsvp' className={styles.card}>
@@ -40,7 +42,7 @@ export default function LinkCards({
       {/* Registry */}
       {showRegistry && (
         <a href='/registry' className={styles.card}>
-          <h3>Registry &rarr;</h3>
+          <h3>Geskenk idees &rarr;</h3>
           <p>Goed wat Mignon sê ons nodig het, blykbaar.</p>
         </a>
       )}
