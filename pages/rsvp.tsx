@@ -1,27 +1,8 @@
 import Head from 'next/head';
-import clientPromise from '../lib/mongodb';
-import { InferGetServerSidePropsType } from 'next';
 import styles from '@/../styles/Home.module.css';
 import Form from '../components/submitRsvp';
 
-export async function getServerSideProps() {
-  try {
-    await clientPromise;
-
-    return {
-      props: { isConnected: true },
-    };
-  } catch (e) {
-    console.error(e);
-    return {
-      props: { isConnected: false },
-    };
-  }
-}
-
-export default function Rsvp({
-  isConnected,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Rsvp() {
   return (
     <div className={styles.container}>
       <Head>
