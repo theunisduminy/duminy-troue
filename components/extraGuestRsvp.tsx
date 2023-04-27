@@ -1,11 +1,15 @@
-import styles from '@/../styles/Form.module.css';
+import styles from '../styles/Form.module.css';
 import React, { useState } from 'react';
 import { updateGuest } from '../lib/utils/getGuest';
-import successfulRsvp from './successfulRsvp';
 
-export default function extraGuest(withSomeone: boolean, guestDetails: Record<string, any>) {
+interface ExtraGuestProps {
+  withSomeone: boolean;
+  guestDetails: Record<string, any>;
+  onSuccess: () => void;
+}
+
+export default function ExtraGuest({ withSomeone, guestDetails, onSuccess }: ExtraGuestProps) {
   const [selectedOption, setSelectedOption] = useState('');
-  const [successfulRsvpForExtraGuests, setRsvpForExtraGuests] = useState(false);
   const [error, setError] = useState<string>('');
 
   const handleSelectChange = (event: any) => {
@@ -31,10 +35,10 @@ export default function extraGuest(withSomeone: boolean, guestDetails: Record<st
       return;
     }
 
-    setRsvpForExtraGuests(true);
+    onSuccess();
   };
 
-  if (withSomeone && !successfulRsvpForExtraGuests) {
+  if (withSomeone) {
     return (
       <form onSubmit={handleSubmit}>
         <div className={styles.extraRsvp}>
@@ -91,6 +95,6 @@ export default function extraGuest(withSomeone: boolean, guestDetails: Record<st
       </form>
     );
   } else {
-    return successfulRsvpForExtraGuests && successfulRsvp(guestDetails);
+    return null;
   }
 }

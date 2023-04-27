@@ -1,5 +1,6 @@
 import styles from '@/../styles/Header.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 export default function Header(title: string, showTitle: boolean = true) {
@@ -9,9 +10,9 @@ export default function Header(title: string, showTitle: boolean = true) {
   return (
     <div className={styles.homeNav}>
       {path !== '/' && (
-        <a className={styles.backLink} href='/'>
+        <Link className={styles.backLink} href='/'>
           <i className='fa fa-arrow-left'></i> Back to Home
-        </a>
+        </Link>
       )}
       <br></br>
       <Image
