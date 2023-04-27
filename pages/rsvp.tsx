@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import styles from '@/../styles/Home.module.css';
-import Form from '../components/submitRsvp';
+import RsvpForm from '../components/submitRsvp';
 
 export default function Rsvp() {
   return (
@@ -12,7 +12,7 @@ export default function Rsvp() {
 
       <main>
         <div>
-          <Form />
+          <RsvpForm />
         </div>
       </main>
 

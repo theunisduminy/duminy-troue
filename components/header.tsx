@@ -1,4 +1,5 @@
 import styles from '@/../styles/Header.module.css';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 export default function Header(title: string, showTitle: boolean = true) {
@@ -13,7 +14,14 @@ export default function Header(title: string, showTitle: boolean = true) {
         </a>
       )}
       <br></br>
-      <img src='/lord-milner-signed.png' className={styles.hotel} />
+      <Image
+        priority
+        src="/images/lord-milner-signed.png"
+        className={styles.hotel}
+        height={500}
+        width={1000}
+        alt=""
+      />
       {showTitle && <h1 className={styles.title}>{title}</h1>}
     </div>
   );
