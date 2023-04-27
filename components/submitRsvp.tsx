@@ -1,37 +1,35 @@
 import React, { useState } from 'react';
 import styles from '../styles/Form.module.css';
 import { getGuest } from '../lib/utils/getGuest';
-import { updateGuest } from '../lib/utils/getGuest';
 import Header from './header';
+import { submitMainGuestProps } from '../pages/rsvp';
 
-interface RsvpFormProps {
-  onSubmit: (isSubmitted: boolean, guestData: Record<string, any>, isWithSomeone: boolean) => void;
+interface SubmitMainGuestProps {
+  // other prop definitions
+  onSubmit: (isSubmitted: boolean, guestData: Record<string, any>, hasPlusOne: boolean) => void;
 }
 
-export default function RsvpForm({ onSubmit }: RsvpFormProps) {
-  const [name, setName] = useState('');
-  const [selectedOption, setSelectedOption] = useState('');
+export default function RsvpForm({ onSubmit }: SubmitMainGuestProps) {
+  const [guestName, setGuestName] = useState('');
+  const [isAttending, setIsAttending] = useState<boolean | undefined>();
   const [error, setError] = useState<string>('');
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value);
+    setGuestName(event.target.value);
     setError('');
   };
 
-  const handleSelectChange = (event: any) => {
-    setSelectedOption(event.target.value);
+  const handleSelectChange = (isAttending: boolean | undefined) => {
+    setIsAttending(isAttending);
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const rsvpDecision = selectedOption === 'yes';
-
     try {
-      await updateGuest(name, rsvpDecision);
-      const guest = await getGuest(name);
+      const guest = await getGuest(guestName);
 
-      if (guest.status !== 'success' || selectedOption === '') {
+      if (guest.status !== 'success') {
         setError('Kyk of jou naam reggespel is.');
       } else {
         const isWithSomeone = guest.data.guest.saam_iemand;
@@ -52,7 +50,7 @@ export default function RsvpForm({ onSubmit }: RsvpFormProps) {
           type='text'
           id='name'
           placeholder='Wat is jou naam en van?'
-          value={name}
+          value={guestName}
           onChange={handleNameChange}
         />
         {error !== '' && (
@@ -70,10 +68,11 @@ export default function RsvpForm({ onSubmit }: RsvpFormProps) {
             {' '}
             <label className={styles.switch}>
               <input
-                type='checkbox'
+                type='radio'
+                name='attendance'
                 value='yes'
-                checked={selectedOption === 'yes'}
-                onChange={handleSelectChange}
+                checked={isAttending}
+                onChange={(e) => handleSelectChange(e.target.checked)}
               />
               <span className={styles.slider}>
                 Ja <i className='fa fa-check'></i>
@@ -81,10 +80,11 @@ export default function RsvpForm({ onSubmit }: RsvpFormProps) {
             </label>
             <label className={`${styles.switch} ${styles.two}`}>
               <input
-                type='checkbox'
+                type='radio'
+                name='attendance'
                 value='no'
-                checked={selectedOption === 'no'}
-                onChange={handleSelectChange}
+                checked={isAttending === false}
+                onChange={(e) => handleSelectChange(!e.target.checked)}
               />
               <span className={styles.slider}>
                 Nee <i className='fa fa-times'></i>

@@ -5,16 +5,26 @@ import RsvpForm from '../components/submitRsvp';
 import ExtraGuest from '../components/extraGuestRsvp';
 import successfulRsvp from '../components/successfulRsvp';
 
+export interface submitMainGuestProps {
+  submitMainGuest: (isSubmitted: boolean, guestData: Record<string, any>, isWithSomeone: boolean) => void;
+}
+
 export default function Rsvp() {
   const [successfulRsvpForExtraGuests, setSuccessfulRsvpForExtraGuests] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [mainGuestSubmitted, setMainGuestSubmitted] = useState(false);
   const [guestDetails, setGuestDetails] = useState<Record<string, any>>({});
-  const [withSomeone, setWithSomeone] = useState(false);
+  const [hasPlusOne, setHasPlusOne] = useState(false);
 
-  const onSubmit = (isSubmitted: boolean, guestData: Record<string, any>, isWithSomeone: boolean) => {
-    setSubmitted(isSubmitted);
+  const submitMainGuest = (isSubmitted: boolean, guestData: Record<string, any>, hasPlusOne: boolean) => {
+    setMainGuestSubmitted(isSubmitted);
     setGuestDetails(guestData);
-    setWithSomeone(isWithSomeone);
+    setHasPlusOne(hasPlusOne);
+  };
+
+  const submitRsvp = (isSubmitted: boolean, guestData: Record<string, any>, isWithSomeone: boolean) => {
+    setMainGuestSubmitted(isSubmitted);
+    setGuestDetails(guestData);
+    setHasPlusOne(isWithSomeone);
   };
 
   return (
@@ -26,12 +36,11 @@ export default function Rsvp() {
 
       <main>
         <div>
-          {!submitted && <RsvpForm onSubmit={onSubmit} />}
-          {submitted && !withSomeone && successfulRsvp(guestDetails)}
-          {submitted && withSomeone && (
+          {!mainGuestSubmitted && <RsvpForm onSubmit={submitMainGuest} />}
+          {mainGuestSubmitted && !hasPlusOne && successfulRsvp(guestDetails)}
+          {mainGuestSubmitted && hasPlusOne && (
             <ExtraGuest
               guestDetails={guestDetails}
-              withSomeone={withSomeone}
               onSuccess={() => setSuccessfulRsvpForExtraGuests(true)}
             />
           )}{' '}
