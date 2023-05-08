@@ -43,7 +43,6 @@ export default function RsvpForm({ onSubmit }: SubmitMainGuestProps) {
 
   return (
     <div>
-      {Header('Laat weet of jy die naweek sal kan bywoon.', false)}
       <form className={styles.form} onSubmit={handleSubmit}>
         <input
           className={styles.input}

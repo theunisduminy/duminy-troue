@@ -13,9 +13,9 @@ export default function Home() {
       </Head>
 
       <main>
+        {Header('Mignon du Plessis & Theunis Duminy trou!')}
         <div className={styles.homePage}>
           {/* Page header */}
-          {Header('Mignon du Plessis & Theunis Duminy trou!')}
           <p className={styles.subtitle}>22-24 Maart, 2024</p>
 
           {/* Cards for linking to other pages */}

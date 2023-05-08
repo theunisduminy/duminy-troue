@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css';
 import RsvpForm from '../components/submitRsvp';
 import ExtraGuest from '../components/extraGuestRsvp';
 import successfulRsvp from '../components/successfulRsvp';
+import Header from '../components/header';
 
 export interface submitMainGuestProps {
   submitMainGuest: (isSubmitted: boolean, guestData: Record<string, any>, isWithSomeone: boolean) => void;
@@ -21,12 +22,6 @@ export default function Rsvp() {
     setHasPlusOne(hasPlusOne);
   };
 
-  const submitRsvp = (isSubmitted: boolean, guestData: Record<string, any>, isWithSomeone: boolean) => {
-    setMainGuestSubmitted(isSubmitted);
-    setGuestDetails(guestData);
-    setHasPlusOne(isWithSomeone);
-  };
-
   return (
     <div className={styles.container}>
       <Head>
@@ -35,15 +30,14 @@ export default function Rsvp() {
       </Head>
 
       <main>
+        {Header('Laat weet of jy die naweek sal kan bywoon.', false)}
         <div>
           {!mainGuestSubmitted && <RsvpForm onSubmit={submitMainGuest} />}
           {mainGuestSubmitted && !hasPlusOne && successfulRsvp(guestDetails)}
-          {mainGuestSubmitted && hasPlusOne && (
-            <ExtraGuest
-              guestDetails={guestDetails}
-              onSuccess={() => setSuccessfulRsvpForExtraGuests(true)}
-            />
-          )}{' '}
+          {mainGuestSubmitted && !successfulRsvpForExtraGuests && hasPlusOne && (
+            <ExtraGuest guestDetails={guestDetails} onSuccess={() => setSuccessfulRsvpForExtraGuests(true)} />
+          )}
+          {successfulRsvpForExtraGuests && successfulRsvp(guestDetails)}
         </div>
       </main>
 
