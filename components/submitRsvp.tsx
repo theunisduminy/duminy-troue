@@ -1,46 +1,39 @@
 import React, { useState } from 'react';
-import styles from '@/../styles/Form.module.css';
+import styles from '../styles/Form.module.css';
 import { getGuest } from '../lib/utils/getGuest';
-import { updateGuest } from '../lib/utils/getGuest';
-import extraGuest from './extraGuestRsvp';
 import Header from './header';
+import { submitMainGuestProps } from '../pages/rsvp';
 
-export default function RsvpForm() {
-  const [name, setName] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('');
-  const [guestDetails, setGuestDetails] = useState<Record<string, any>>({});
-  const [withSomeone, setWithSomeone] = useState(false);
+interface SubmitMainGuestProps {
+  // other prop definitions
+  onSubmit: (isSubmitted: boolean, guestData: Record<string, any>, hasPlusOne: boolean) => void;
+}
+
+export default function RsvpForm({ onSubmit }: SubmitMainGuestProps) {
+  const [guestName, setGuestName] = useState('');
+  const [isAttending, setIsAttending] = useState<boolean | undefined>();
   const [error, setError] = useState<string>('');
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value);
+    setGuestName(event.target.value);
     setError('');
   };
 
-  const handleSelectChange = (event: any) => {
-    setSelectedOption(event.target.value);
+  const handleSelectChange = (isAttending: boolean | undefined) => {
+    setIsAttending(isAttending);
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const rsvpDecision = selectedOption === 'yes' ? true : false;
-
     try {
-      await updateGuest(name, rsvpDecision);
-      const guest = await getGuest(name);
+      const guest = await getGuest(guestName);
 
-      setGuestDetails(guest);
-
-      if (guest.data.guest.saam_iemand) {
-        setWithSomeone(true);
-      }
-
-      if (guest.status !== 'success' || selectedOption === '') {
+      if (guest.status !== 'success') {
         setError('Kyk of jou naam reggespel is.');
       } else {
-        setSubmitted(true);
+        const isWithSomeone = guest.data.guest.saam_iemand;
+        onSubmit(true, guest, isWithSomeone);
       }
     } catch (error) {
       console.error(error);
@@ -48,66 +41,61 @@ export default function RsvpForm() {
     }
   };
 
-  const extraGuestSection = extraGuest(withSomeone, guestDetails);
-
   return (
     <div>
-      {Header('Laat weet of jy die naweek sal kan bywoon.', !submitted)}
-      {!submitted && (
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <input
-            className={styles.input}
-            type='text'
-            id='name'
-            placeholder='Wat is jou naam en van?'
-            value={name}
-            onChange={handleNameChange}
-          />
-          {error !== '' && (
-            <div className={styles.error}>
-              <label>{`${error}`}</label>
-            </div>
-          )}
-          <div className={styles.vl}></div>
-          <div>
-            <label className={styles.label} htmlFor='name'>
-              Kan jy kom?
-            </label>
-
-            <div className={styles.rsvp}>
-              {' '}
-              <label className={styles.switch}>
-                <input
-                  type='checkbox'
-                  value='yes'
-                  checked={selectedOption === 'yes'}
-                  onChange={handleSelectChange}
-                />
-                <span className={styles.slider}>
-                  Ja <i className='fa fa-check'></i>
-                </span>
-              </label>
-              <label className={`${styles.switch} ${styles.two}`}>
-                <input
-                  type='checkbox'
-                  value='no'
-                  checked={selectedOption === 'no'}
-                  onChange={handleSelectChange}
-                />
-                <span className={styles.slider}>
-                  Nee <i className='fa fa-times'></i>
-                </span>
-              </label>
-            </div>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <input
+          className={styles.input}
+          type='text'
+          id='name'
+          placeholder='Wat is jou naam en van?'
+          value={guestName}
+          onChange={handleNameChange}
+        />
+        {error !== '' && (
+          <div className={styles.error}>
+            <label>{`${error}`}</label>
           </div>
-          <div className={styles.vl}></div>
-          <button type='submit'>
-            <i className='fa fa-arrow-right'></i>
-          </button>
-        </form>
-      )}
+        )}
+        <div className={styles.vl}></div>
+        <div>
+          <label className={styles.label} htmlFor='name'>
+            Kan jy kom?
+          </label>
 
-      {submitted && extraGuestSection}
+          <div className={styles.rsvp}>
+            {' '}
+            <label className={styles.switch}>
+              <input
+                type='radio'
+                name='attendance'
+                value='yes'
+                checked={isAttending}
+                onChange={(e) => handleSelectChange(e.target.checked)}
+              />
+              <span className={styles.slider}>
+                Ja <i className='fa fa-check'></i>
+              </span>
+            </label>
+            <label className={`${styles.switch} ${styles.two}`}>
+              <input
+                type='radio'
+                name='attendance'
+                value='no'
+                checked={isAttending === false}
+                onChange={(e) => handleSelectChange(!e.target.checked)}
+              />
+              <span className={styles.slider}>
+                Nee <i className='fa fa-times'></i>
+              </span>
+            </label>
+          </div>
+        </div>
+        <div className={styles.vl}></div>
+        <button type='submit'>
+          <i className='fa fa-arrow-right'></i>
+        </button>
+      </form>
     </div>
   );
 }

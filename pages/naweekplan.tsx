@@ -1,28 +1,9 @@
 import Head from 'next/head';
-import clientPromise from '../lib/mongodb';
-import { InferGetServerSidePropsType } from 'next';
 import styles from '@/../styles/Home.module.css';
 import Header from '../components/header';
 import dayPlan from '../components/dayInfo';
 
-export async function getServerSideProps() {
-  try {
-    await clientPromise;
-
-    return {
-      props: { isConnected: true },
-    };
-  } catch (e) {
-    console.error(e);
-    return {
-      props: { isConnected: false },
-    };
-  }
-}
-
-export default function Naweekplan({
-  isConnected,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Naweekplan() {
   return (
     <div className={styles.container}>
       <Head>

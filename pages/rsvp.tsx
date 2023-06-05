@@ -1,27 +1,27 @@
 import Head from 'next/head';
-import clientPromise from '../lib/mongodb';
-import { InferGetServerSidePropsType } from 'next';
-import styles from '@/../styles/Home.module.css';
-import Form from '../components/submitRsvp';
+import { useState } from 'react';
+import styles from '../styles/Home.module.css';
+import RsvpForm from '../components/submitRsvp';
+import ExtraGuest from '../components/extraGuestRsvp';
+import successfulRsvp from '../components/successfulRsvp';
+import Header from '../components/header';
 
-export async function getServerSideProps() {
-  try {
-    await clientPromise;
-
-    return {
-      props: { isConnected: true },
-    };
-  } catch (e) {
-    console.error(e);
-    return {
-      props: { isConnected: false },
-    };
-  }
+export interface submitMainGuestProps {
+  submitMainGuest: (isSubmitted: boolean, guestData: Record<string, any>, isWithSomeone: boolean) => void;
 }
 
-export default function Rsvp({
-  isConnected,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Rsvp() {
+  const [successfulRsvpForExtraGuests, setSuccessfulRsvpForExtraGuests] = useState(false);
+  const [mainGuestSubmitted, setMainGuestSubmitted] = useState(false);
+  const [guestDetails, setGuestDetails] = useState<Record<string, any>>({});
+  const [hasPlusOne, setHasPlusOne] = useState(false);
+
+  const submitMainGuest = (isSubmitted: boolean, guestData: Record<string, any>, hasPlusOne: boolean) => {
+    setMainGuestSubmitted(isSubmitted);
+    setGuestDetails(guestData);
+    setHasPlusOne(hasPlusOne);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -30,8 +30,14 @@ export default function Rsvp({
       </Head>
 
       <main>
+        {Header('Laat weet of jy die naweek sal kan bywoon.', false)}
         <div>
-          <Form />
+          {!mainGuestSubmitted && <RsvpForm onSubmit={submitMainGuest} />}
+          {mainGuestSubmitted && !hasPlusOne && successfulRsvp(guestDetails)}
+          {mainGuestSubmitted && !successfulRsvpForExtraGuests && hasPlusOne && (
+            <ExtraGuest guestDetails={guestDetails} onSuccess={() => setSuccessfulRsvpForExtraGuests(true)} />
+          )}
+          {successfulRsvpForExtraGuests && successfulRsvp(guestDetails)}
         </div>
       </main>
 
