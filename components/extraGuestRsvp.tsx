@@ -21,14 +21,16 @@ export default function extraGuest(withSomeone: boolean, guestDetails: Record<st
       return;
     }
 
-    try {
-      guestsToRsvpFor.map(async (person: string) => {
-        const rsvpDecision = true;
-        await updateGuest(person, rsvpDecision);
-      });
-    } catch (error) {
-      console.error(error);
-      return;
+    if (selectedOption === 'yes') {
+      try {
+        guestsToRsvpFor.map(async (person: string) => {
+          const rsvpDecision = true;
+          await updateGuest(person, rsvpDecision);
+        });
+      } catch (error) {
+        console.error(error);
+        return;
+      }
     }
 
     setRsvpForExtraGuests(true);

@@ -5,15 +5,29 @@
 }
 
 .dayInfo h2 {
-  font-size: 16px;
-  color: #899481;
+  font-size: 20px;
+  color: #000;
+  margin-bottom: 17px;
+}
+
+.dayInfo h3 {
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 17px;
 }
 
 .dayBox {
-  text-align: center;
+  text-align: left;
   box-shadow: 0 0 0.5rem #f1cdcd;
   border: 1px solid #85969a84;
   width: 85%;
-  padding: 0 3%;
+  padding: 3% 6%;
   margin: 5% 0;
+  background-color: #f1cdcd;
+}
+
+.dayInfo p {
+  font-size: 15px;
+  color: #000;
+  text-align: justify;
 }
