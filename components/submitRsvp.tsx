@@ -11,11 +11,17 @@ interface SubmitMainGuestProps {
 
 export default function RsvpForm({ onSubmit }: SubmitMainGuestProps) {
   const [guestName, setGuestName] = useState('');
+  const [guestDiet, setGuestDiet] = useState('');
   const [isAttending, setIsAttending] = useState<boolean | undefined>();
   const [error, setError] = useState<string>('');
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setGuestName(event.target.value);
+    setError('');
+  };
+
+  const handleDietChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setGuestDiet(event.target.value);
     setError('');
   };
 
@@ -92,6 +98,19 @@ export default function RsvpForm({ onSubmit }: SubmitMainGuestProps) {
           </div>
         </div>
         <div className={styles.vl}></div>
+        {/* {isAttending && (
+          <>
+            <input
+              className={styles.input}
+              type='text'
+              id='diet'
+              placeholder='Enige dieet vereistes?'
+              value={guestDiet}
+              onChange={handleDietChange}
+            />
+            <div className={styles.vl}></div>
+          </>
+        )} */}
         <button type='submit'>
           <i className='fa fa-arrow-right'></i>
         </button>

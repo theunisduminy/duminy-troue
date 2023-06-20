@@ -32,11 +32,15 @@ export default function Rsvp() {
       <main>
         {Header('Laat weet of jy die naweek sal kan bywoon.', false)}
         <div>
+          {/* RSVP Form for main guest */}
           {!mainGuestSubmitted && <RsvpForm onSubmit={submitMainGuest} />}
+          {/* Successful RSVP page if no plus one */}
           {mainGuestSubmitted && !hasPlusOne && successfulRsvp(guestDetails)}
+          {/* Extra guest if has plus one */}
           {mainGuestSubmitted && !successfulRsvpForExtraGuests && hasPlusOne && (
             <ExtraGuest guestDetails={guestDetails} onSuccess={() => setSuccessfulRsvpForExtraGuests(true)} />
           )}
+          {/* Successful RSVP page if extra guest submitted */}
           {successfulRsvpForExtraGuests && successfulRsvp(guestDetails)}
         </div>
       </main>

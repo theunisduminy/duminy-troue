@@ -32,7 +32,7 @@ export default function Home() {
           </p>
         </div>
       </main>
-
+      {/* Footer element */}
       <footer>
         <span>Gebou deur Theunis Duminy.</span>
       </footer>

@@ -6,7 +6,6 @@
     "start": "next start",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\""
-
   },
   "dependencies": {
     "dotenv": "^10.0.0",

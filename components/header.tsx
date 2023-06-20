@@ -15,7 +15,7 @@ export default function Header(title: string, showTitle: boolean = true) {
         </Link>
       )}
       <br></br>
-      <Image priority src='/images/lord-milner-signed.png' className={styles.hotel} height={500} width={1000} alt='' />
+      <img src='./images/lord-milner-signed.png' className={styles.hotel} />
       {showTitle && <h1 className={styles.title}>{title}</h1>}
     </div>
   );
