@@ -16,13 +16,16 @@ export default function Naweekplan() {
         <div className={styles.vl}></div>
 
         {/* Vrydag */}
-        {dayPlan({ date: 'Vrydag, 22 Maart 2024' })}
+        {dayPlan({
+          date: 'Vrydag, 22 Maart 2024',
+          copy: "Dis 'n langnaweek - sit verlof in! Almal kan in boek by hulle akkomodasie van 15:00 af en die aand 'n heerlike spit geniet. Alhoewel ons in die Karoo is, gaan ons nogsteeds Heidelberg lam eet.",
+        })}
 
         {/* Saterdag */}
-        {dayPlan({ date: 'Saterdag, 23 Maart 2024' })}
+        {dayPlan({ date: 'Saterdag, 23 Maart 2024', copy: 'hello' })}
 
         {/* Sonday */}
-        {dayPlan({ date: 'Sondag, 24 Maart 2024' })}
+        {dayPlan({ date: 'Sondag, 24 Maart 2024', copy: 'hello' })}
       </main>
 
       <footer>

@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { useState } from 'react';
 import styles from '../styles/Home.module.css';
 import RsvpForm from '../components/submitRsvp';
-import ExtraGuest from '../components/extraGuestRsvp';
 import successfulRsvp from '../components/successfulRsvp';
 import Header from '../components/header';
 
@@ -11,15 +10,14 @@ export interface submitMainGuestProps {
 }
 
 export default function Rsvp() {
-  const [successfulRsvpForExtraGuests, setSuccessfulRsvpForExtraGuests] = useState(false);
   const [mainGuestSubmitted, setMainGuestSubmitted] = useState(false);
+  // const [dietOptionSubmitted, setDietOptionSubmitted] = useState(false);
   const [guestDetails, setGuestDetails] = useState<Record<string, any>>({});
-  const [hasPlusOne, setHasPlusOne] = useState(false);
 
-  const submitMainGuest = (isSubmitted: boolean, guestData: Record<string, any>, hasPlusOne: boolean) => {
+  const submitMainGuest = (isSubmitted: boolean, guestData: Record<string, any>) => {
     setMainGuestSubmitted(isSubmitted);
     setGuestDetails(guestData);
-    setHasPlusOne(hasPlusOne);
+    // setDietOptionSubmitted(isVegetarian);
   };
 
   return (
@@ -35,13 +33,7 @@ export default function Rsvp() {
           {/* RSVP Form for main guest */}
           {!mainGuestSubmitted && <RsvpForm onSubmit={submitMainGuest} />}
           {/* Successful RSVP page if no plus one */}
-          {mainGuestSubmitted && !hasPlusOne && successfulRsvp(guestDetails)}
-          {/* Extra guest if has plus one */}
-          {mainGuestSubmitted && !successfulRsvpForExtraGuests && hasPlusOne && (
-            <ExtraGuest guestDetails={guestDetails} onSuccess={() => setSuccessfulRsvpForExtraGuests(true)} />
-          )}
-          {/* Successful RSVP page if extra guest submitted */}
-          {successfulRsvpForExtraGuests && successfulRsvp(guestDetails)}
+          {mainGuestSubmitted && successfulRsvp(guestDetails)}
         </div>
       </main>
 

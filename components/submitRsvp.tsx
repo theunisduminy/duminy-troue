@@ -1,31 +1,30 @@
 import React, { useState } from 'react';
 import styles from '../styles/Form.module.css';
-import { getGuest } from '../lib/utils/getGuest';
-import Header from './header';
-import { submitMainGuestProps } from '../pages/rsvp';
+import { getGuest } from '../lib/utils/guestRequests';
+import { updateGuest } from '../lib/utils/guestRequests';
+import SelectButtonComponent from './selectionButtons';
 
 interface SubmitMainGuestProps {
   // other prop definitions
-  onSubmit: (isSubmitted: boolean, guestData: Record<string, any>, hasPlusOne: boolean) => void;
+  onSubmit: (isSubmitted: boolean, guestData: Record<string, any>, isVegetarian: boolean | undefined) => void;
 }
 
 export default function RsvpForm({ onSubmit }: SubmitMainGuestProps) {
-  const [guestName, setGuestName] = useState('');
-  const [guestDiet, setGuestDiet] = useState('');
+  const [guestCellNumber, setGuestCellNumber] = useState('');
   const [isAttending, setIsAttending] = useState<boolean | undefined>();
+  const [isVegetarian, setGuestDiet] = useState<boolean | undefined>();
   const [error, setError] = useState<string>('');
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setGuestName(event.target.value);
+    setGuestCellNumber(event.target.value);
     setError('');
   };
 
-  const handleDietChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setGuestDiet(event.target.value);
-    setError('');
+  const handleDietChange = (isVegetarian: boolean) => {
+    setGuestDiet(isVegetarian);
   };
 
-  const handleSelectChange = (isAttending: boolean | undefined) => {
+  const handleSelectChange = (isAttending: boolean) => {
     setIsAttending(isAttending);
   };
 
@@ -33,84 +32,67 @@ export default function RsvpForm({ onSubmit }: SubmitMainGuestProps) {
     event.preventDefault();
 
     try {
-      const guest = await getGuest(guestName);
+      const guest = await getGuest(guestCellNumber);
+      await updateGuest(guestCellNumber, isAttending, isVegetarian);
 
       if (guest.status !== 'success') {
-        setError('Kyk of jou naam reggespel is.');
+        setError('Kyk of jou nommer reg is, asseblief.');
+      } else if (isAttending === undefined || isVegetarian === undefined) {
+        setError('Kyk hier, jy moet nou kies of jy kan kom en wat jy wil eet.');
       } else {
-        const isWithSomeone = guest.data.guest.saam_iemand;
-        onSubmit(true, guest, isWithSomeone);
+        onSubmit(true, guest, isVegetarian);
       }
     } catch (error) {
       console.error(error);
-      setError('Kyk of jou naam reggespel is.');
+      setError('Iets het verkeerd gegaan. Bel vir Theunis en sê vir hom hy is kak met coding.');
     }
   };
 
   return (
     <div>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <input
-          className={styles.input}
-          type='text'
-          id='name'
-          placeholder='Wat is jou naam en van?'
-          value={guestName}
-          onChange={handleNameChange}
-        />
+        {/* Error message */}
         {error !== '' && (
           <div className={styles.error}>
             <label>{`${error}`}</label>
           </div>
         )}
-        <div className={styles.vl}></div>
-        <div>
-          <label className={styles.label} htmlFor='name'>
-            Kan jy kom?
-          </label>
 
-          <div className={styles.rsvp}>
-            {' '}
-            <label className={styles.switch}>
-              <input
-                type='radio'
-                name='attendance'
-                value='yes'
-                checked={isAttending}
-                onChange={(e) => handleSelectChange(e.target.checked)}
-              />
-              <span className={styles.slider}>
-                Ja <i className='fa fa-check'></i>
-              </span>
-            </label>
-            <label className={`${styles.switch} ${styles.two}`}>
-              <input
-                type='radio'
-                name='attendance'
-                value='no'
-                checked={isAttending === false}
-                onChange={(e) => handleSelectChange(!e.target.checked)}
-              />
-              <span className={styles.slider}>
-                Nee <i className='fa fa-times'></i>
-              </span>
-            </label>
-          </div>
-        </div>
+        {/* Cellphone number */}
+        <input
+          className={styles.input}
+          type='text'
+          id='name'
+          placeholder='Wat is jou selfoon nommer?'
+          value={guestCellNumber}
+          onChange={handleNameChange}
+        />
+
         <div className={styles.vl}></div>
-        {/* {isAttending && (
-          <>
-            <input
-              className={styles.input}
-              type='text'
-              id='diet'
-              placeholder='Enige dieet vereistes?'
-              value={guestDiet}
-              onChange={handleDietChange}
-            />
-            <div className={styles.vl}></div>
-          </>
-        )} */}
+
+        {/* RSVP */}
+        <SelectButtonComponent
+          selection={isAttending}
+          name={'attendance'}
+          label={'Kan jy kom?'}
+          buttonOptions={['Ja', 'Nee']}
+          showIcons={true}
+          handleSelectChange={handleSelectChange}
+        />
+
+        {/* Diet option */}
+        <div className={styles.vl}></div>
+        <SelectButtonComponent
+          selection={isVegetarian}
+          name={'diet'}
+          label={'Dieet vereistes?'}
+          buttonOptions={['Vegetarian', 'Rooivleis']}
+          showIcons={false}
+          handleSelectChange={handleDietChange}
+        />
+        <div className={styles.vl}></div>
+
+        {/* Submit button */}
         <button type='submit'>
           <i className='fa fa-arrow-right'></i>
         </button>

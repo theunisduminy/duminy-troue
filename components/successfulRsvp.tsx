@@ -4,15 +4,15 @@ import LinkCards from './linkCards';
 
 export default function successfulRsvp(guestDetails: Record<string, any>) {
   const personalMessage =
-    guestDetails.data.guest.message !== null
+    guestDetails.data.guest.message !== 'geen'
       ? guestDetails.data.guest.message
-      : 'Dankie, ons sien uit om saam jou die groot dag te vier!';
+      : 'Dankie, ons sien baie uit om saam jou ons groot dag te vier!';
 
   return (
     <div className={styles.personalMessage}>
       <label>{personalMessage}</label>
       {/* Cards for linking to other pages */}
-      {LinkCards({ showRsvp: false })}
+      {LinkCards({})}
     </div>
   );
 }
