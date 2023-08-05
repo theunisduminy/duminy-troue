@@ -1,6 +1,6 @@
 import styles from '../styles/Form.module.css';
 import React, { useState } from 'react';
-import { updateGuest } from '../lib/utils/getGuest';
+import { updateGuest } from '../lib/utils/guestRequests';
 
 interface ExtraGuestProps {
   guestDetails: Record<string, any>;

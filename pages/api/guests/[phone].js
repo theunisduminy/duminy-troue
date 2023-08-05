@@ -1,26 +1,27 @@
+import { log } from 'console';
 import clientPromise from '../../../lib/mongodb';
 
 export default async (req, res) => {
   let guest;
   try {
-    const { name } = req.query;
+    const { phone } = req.query;
     const client = await clientPromise;
     const db = client.db('wedding');
 
     if (req.method === 'GET') {
-      guest = await db.collection('guests').findOne({ name });
+      guest = await db.collection('guests').findOne({ phone });
     }
 
     if (req.method === 'PATCH') {
       guest = await db
         .collection('guests')
-        .findOneAndUpdate({ name }, { $set: req.body }, { new: true, runValidators: true });
+        .findOneAndUpdate({ phone }, { $set: req.body }, { new: true, runValidators: true });
     }
 
     if (!guest) {
       return res.status(404).json({
         status: 'failed',
-        message: 'Is jou naam reggespel?',
+        message: 'Is jou nommer reg?',
       });
     }
 

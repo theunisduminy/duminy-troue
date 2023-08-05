@@ -6,13 +6,13 @@
 
 .dayInfo h2 {
   font-size: 20px;
-  color: #000;
+  color: #403c46;
   margin-bottom: 17px;
 }
 
 .dayInfo h3 {
   font-size: 18px;
-  color: #000;
+  color: #403c46;
   margin-bottom: 17px;
 }
 
@@ -28,6 +28,6 @@
 
 .dayInfo p {
   font-size: 15px;
-  color: #000;
+  color: #403c46;
   text-align: justify;
 }
