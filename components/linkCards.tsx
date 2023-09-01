@@ -1,4 +1,7 @@
 import styles from '@/../styles/Card.module.css';
+import { useGenerationStore } from '../lib/language';
+import { getTranslation } from '../lib/language';
+import useStore from '../lib/useStore';
 
 interface LinkCardsProps {
   showRsvp?: boolean;
@@ -13,6 +16,11 @@ export default function LinkCards({
   showRegistry = true,
   showBackToHome = true,
 }: LinkCardsProps) {
+  const lang = useStore(useGenerationStore, (state) => state.language);
+  // const { language } = useGenerationStore();
+
+  const translation = getTranslation(lang);
+
   return (
     <div className={styles.grid}>
       {/* Back to Home */}
@@ -27,23 +35,23 @@ export default function LinkCards({
       {showRsvp && (
         <a href='/rsvp' className={styles.card}>
           <h3>RSVP &rarr;</h3>
-          <p>Laat weet of jy en jou metgeselle sal kan kom.</p>
+          <p>{translation.rsvp_sub}</p>
         </a>
       )}
 
       {/* Naweekplan */}
       {showNaweekplan && (
         <a href='/naweekplan' className={styles.card}>
-          <h3>Naweekplan &rarr;</h3>
-          <p>Waar, wanneer, hoe laat en wat 'n mens dra na so ding.</p>
+          <h3>{translation.naweek_plan_header} &rarr;</h3>
+          <p>{translation.naweek_plan_sub}</p>
         </a>
       )}
 
       {/* Registry */}
       {showRegistry && (
         <a href='/registry' className={styles.card}>
-          <h3>Geskenk idees &rarr;</h3>
-          <p>Goed wat Mignon sê ons nodig het, blykbaar.</p>
+          <h3>{translation.geskenk_idees_header} &rarr;</h3>
+          <p>{translation.geskenk_idees_sub}</p>
         </a>
       )}
     </div>

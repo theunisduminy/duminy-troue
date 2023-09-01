@@ -1,8 +1,16 @@
 import styles from '@/../styles/Form.module.css';
-
+import { useGenerationStore } from '../lib/language';
+import { getTranslation } from '../lib/language';
+import useStore from '../lib/useStore';
 import LinkCards from './linkCards';
 
 export default function successfulRsvp(guestDetails: Record<string, any>) {
+  // const lang = useStore(useGenerationStore, (state) => state.language);
+
+  // const { language, setLanguage } = useGenerationStore();
+  // console.log(lang);
+
+  // const translation = getTranslation(lang);
   const personalMessage =
     guestDetails.data.guest.message !== 'geen'
       ? guestDetails.data.guest.message
