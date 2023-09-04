@@ -8,16 +8,16 @@ import { getTranslation } from '../lib/language';
 interface SubmitMainGuestProps {
   // other prop definitions
   onSubmit: (isSubmitted: boolean, guestData: Record<string, any>, isVegetarian: boolean | undefined) => void;
-  // lang: 'afr' | 'eng' | undefined;
+  language: 'afr' | 'eng';
 }
 
-export default function RsvpForm({ onSubmit }: SubmitMainGuestProps) {
+export default function RsvpForm({ onSubmit, language }: SubmitMainGuestProps) {
   const [guestCellNumber, setGuestCellNumber] = useState('');
   const [isAttending, setIsAttending] = useState<boolean | undefined>();
   const [isVegetarian, setGuestDiet] = useState<boolean | undefined>();
   const [error, setError] = useState<string>('');
 
-  const translation = getTranslation('afr');
+  const translation = getTranslation(language);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setGuestCellNumber(event.target.value);
@@ -78,7 +78,7 @@ export default function RsvpForm({ onSubmit }: SubmitMainGuestProps) {
         <SelectButtonComponent
           selection={isAttending}
           name={'attendance'}
-          label={'Kan jy kom?'}
+          label={translation.attend}
           buttonOptions={['Ja', 'Nee']}
           showIcons={true}
           handleSelectChange={handleSelectChange}
@@ -89,8 +89,8 @@ export default function RsvpForm({ onSubmit }: SubmitMainGuestProps) {
         <SelectButtonComponent
           selection={isVegetarian}
           name={'diet'}
-          label={'Dieet vereistes?'}
-          buttonOptions={['Vegetarian', 'Rooivleis']}
+          label={translation.dieet}
+          buttonOptions={['Vegetarian 🥦', translation.vleis]}
           showIcons={false}
           handleSelectChange={handleDietChange}
         />

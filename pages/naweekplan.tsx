@@ -22,10 +22,16 @@ export default function Naweekplan() {
         })}
 
         {/* Saterdag */}
-        {dayPlan({ date: 'Saterdag, 23 Maart 2024', copy: 'hello' })}
+        {dayPlan({
+          date: 'Saterdag, 23 Maart 2024',
+          copy: 'Die groot dag. Ontbyt begin van 08:00 af in die hotel. Hou jouself gerus besig met al die aktiwiteite in Matjiesfontein, maar maak seker dat jy 15:00 aangetrek en reg is om te kom kyk hoe ek en Mignon trou.',
+        })}
 
         {/* Sonday */}
-        {dayPlan({ date: 'Sondag, 24 Maart 2024', copy: 'hello' })}
+        {dayPlan({
+          date: 'Sondag, 24 Maart 2024',
+          copy: "Gaan vat 'n dip in die swembad om daai babbelas af te spoel. Ontbyt begin weer van 08:00 af. Veilig terug ry, en dankie dat jy ons spesiale naweek bygewoon het.",
+        })}
       </main>
 
       <footer>

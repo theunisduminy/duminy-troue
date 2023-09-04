@@ -1,6 +1,6 @@
 {
   "month": "Maart",
-  "home_header": "Theunis Duminy & Mignon Du Plessis trou!",
+  "home_title": "Theunis Duminy & Mignon Du Plessis trou!",
   "rsvp_header": "RSVP",
   "rsvp_sub": "Laat weet of jy en jou metgeselle kan kom.",
   "naweek_plan_header": "Naweekplan",
@@ -9,5 +9,12 @@
   "geskenk_idees_sub": "Goed wat Mignon sê ons nodig het, blykbaar.",
   "waar_die_troue_is_1": "Die troue is in",
   "waar_die_troue_is_2": "as jy dit nog nie uitgefigure het nie.",
-  "cellphone_num": "Wat is jou selfoon nommer?"
+  "cellphone_num": "Wat is jou selfoon nommer?",
+  "naweek_bywoon": "Laat weet of jy die naweek sal kan bywoon.",
+  "button": "English please!",
+  "attend": "Luister, kan jy kom?",
+  "dieet": "Dieet vereistes?",
+  "vleis": "Rooivleis 🥩",
+  "home_header": "Tuis",
+  "home_sub": "Gaan terug na die eerste blad - die Home page"
 }

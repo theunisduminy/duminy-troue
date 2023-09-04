@@ -1,24 +1,19 @@
-import { create } from 'zustand';
-import { persist, createJSONStorage } from 'zustand/middleware';
+// import { create } from 'zustand';
 import afr_translation from '../translations/afr_trans.json';
 import eng_translation from '../translations/eng_trans.json';
 
-interface GenerationState {
-  language: 'afr' | 'eng';
-  setLanguage: (language: 'afr' | 'eng') => void;
-}
+// // Define the state interface
+// interface LanguageState {
+//   language: 'afr' | 'eng'; // Define the type for the language property
+//   setLanguage: (newLanguage: 'afr' | 'eng') => void; // Define the type for the setLanguage method
+// }
 
-export const useGenerationStore = create(
-  persist<GenerationState>(
-    (set, get) => ({
-      language: 'afr',
-      setLanguage: (language) => set({ language }),
-    }),
-    {
-      name: 'lang-storage', // name of the item in the storage
-    },
-  ),
-);
+// const useLanguageStore = create<LanguageState>((set) => ({
+//   language: 'afr',
+//   setLanguage: (newLanguage) => set({ language: newLanguage }),
+// }));
+
+// export default useLanguageStore;
 
 export const getTranslation = (language: 'afr' | 'eng' | undefined) => {
   return language === 'afr' ? afr_translation : eng_translation;

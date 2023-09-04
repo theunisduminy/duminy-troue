@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic';
-import { useGenerationStore } from '../lib/language';
+import { useState } from 'react';
 import { getTranslation } from '../lib/language';
 import Head from 'next/head';
 import styles from '@/../styles/Home.module.css';
@@ -8,14 +6,12 @@ import LinkCards from '../components/linkCards';
 import Header from '../components/header';
 
 export default function Home() {
-  const { language, setLanguage } = useGenerationStore();
+  const [language, setLanguage] = useState<'afr' | 'eng'>('afr');
 
   const handleLanguageChange = () => {
     const newLanguage = language === 'eng' ? 'afr' : 'eng';
     setLanguage(newLanguage);
   };
-
-  console.log(language);
 
   const translation = getTranslation(language);
 
@@ -29,15 +25,15 @@ export default function Home() {
 
       <main>
         {/* Page header */}
-        <button onClick={handleLanguageChange}>English please!</button>
-        {Header(translation.home_header)}
+        <button onClick={handleLanguageChange}>{translation.button}</button>
+        {Header(translation.home_title)}
 
         <div className={styles.homePage}>
           {/* subTitle */}
           <p className={styles.subtitle}>22-24 {translation.month}, 2024</p>
 
           {/* Cards for linking to other pages */}
-          {LinkCards({ showBackToHome: false, translation })}
+          {LinkCards({ showBackToHome: false, language })}
 
           {/* Bottom section of the page */}
           <div className={styles.vl}></div>

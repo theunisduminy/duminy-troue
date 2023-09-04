@@ -1,13 +1,13 @@
 import styles from '@/../styles/Card.module.css';
-import { useGenerationStore } from '../lib/language';
+
 import { getTranslation } from '../lib/language';
-import useStore from '../lib/useStore';
 
 interface LinkCardsProps {
   showRsvp?: boolean;
   showNaweekplan?: boolean;
   showRegistry?: boolean;
   showBackToHome?: boolean;
+  language: 'afr' | 'eng';
 }
 
 export default function LinkCards({
@@ -15,19 +15,17 @@ export default function LinkCards({
   showNaweekplan = true,
   showRegistry = true,
   showBackToHome = true,
+  language,
 }: LinkCardsProps) {
-  const lang = useStore(useGenerationStore, (state) => state.language);
-  // const { language } = useGenerationStore();
-
-  const translation = getTranslation(lang);
+  const translation = getTranslation(language);
 
   return (
     <div className={styles.grid}>
       {/* Back to Home */}
       {showBackToHome && (
         <a href='/' className={styles.card}>
-          <h3>Tuis &rarr;</h3>
-          <p>Gaan terug na die eerste blad - die Home page.</p>
+          <h3>{translation.home_header} &rarr;</h3>
+          <p>{translation.home_sub}</p>
         </a>
       )}
 
