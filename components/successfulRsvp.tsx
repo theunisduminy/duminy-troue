@@ -1,8 +1,7 @@
 import styles from '@/../styles/Form.module.css';
-
 import LinkCards from './linkCards';
 
-export default function successfulRsvp(guestDetails: Record<string, any>) {
+export default function successfulRsvp(guestDetails: Record<string, any>, language: 'afr' | 'eng') {
   const personalMessage =
     guestDetails.data.guest.message !== 'geen'
       ? guestDetails.data.guest.message
@@ -12,7 +11,7 @@ export default function successfulRsvp(guestDetails: Record<string, any>) {
     <div className={styles.personalMessage}>
       <label>{personalMessage}</label>
       {/* Cards for linking to other pages */}
-      {LinkCards({})}
+      {LinkCards({ language })}
     </div>
   );
 }
