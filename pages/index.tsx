@@ -4,9 +4,15 @@ import Head from 'next/head';
 import styles from '@/../styles/Home.module.css';
 import LinkCards from '../components/linkCards';
 import Header from '../components/header';
+import useLanguageStore from '../lib/store';
 
 export default function Home() {
-  const [language, setLanguage] = useState<'afr' | 'eng'>('afr');
+  const { language, setLanguage } = useLanguageStore((state) => {
+    return {
+      language: state.language,
+      setLanguage: state.setLanguage,
+    };
+  });
 
   const handleLanguageChange = () => {
     const newLanguage = language === 'eng' ? 'afr' : 'eng';
