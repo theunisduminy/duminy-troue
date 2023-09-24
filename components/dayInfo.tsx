@@ -13,9 +13,9 @@ export default function dayPlan({ date, copy }: DayPlanProps) {
           <i className='fa fa-calendar-check-o'></i> {date}
         </h2>
         <p>{copy}</p>
-        <h3>
+        {/* <h3>
           <i className='fa fa-black-tie'></i> Drag
-        </h3>
+        </h3> */}
       </div>
     </div>
   );

@@ -2,7 +2,7 @@
   "month": "March",
   "home_title": "Theunis Duminy & Mignon Du Plessis are getting married!",
   "rsvp_header": "RSVP",
-  "rsvp_sub": "Let us know if you and your partner can attend.",
+  "rsvp_sub": "Let us know if you'll be able to attend the weekend.",
   "naweek_plan_header": "Weekend plan",
   "naweek_plan_sub": "Where, when and what someones wheres to this shindig.",
   "geskenk_idees_header": "Present ideas",
@@ -12,9 +12,23 @@
   "cellphone_num": "What is your cellphone number?",
   "naweek_bywoon": "Let us know if you can attend the weekend",
   "button": "Afrikaans asseblief!",
-  "attend": "Listen, can you come?",
+  "attend": "Can you attend the weekend?",
   "dieet": "Dietary requirements?",
   "vleis": "Red meat 🥩",
   "home_header": "Home",
-  "home_sub": "Navigate back to the home page of the site"
+  "home_sub": "Navigate back to the home page of the site",
+  "number_error": "Please check if your number is correct",
+  "rsvp_error": "Please indicate if you can come and your dietary requirements",
+  "vrydag": {
+    "date": "Friday, March 22, 2024",
+    "copy": "It's a long weekend - take leave! Everyone can check in at their accommodation from 15:00 onwards and enjoy a delightful spit braai in the evening. Although we're in the Karoo, we'll still be enjoying Heidelberg lamb."
+  },
+  "saterdag": {
+    "date": "Saturday, March 23, 2024",
+    "copy": "The big day. Breakfast starts at 08:00 at the hotel. Keep yourself busy with all the activities in Matjiesfontein, but make sure to be dressed and ready for the ceremony that will start, strictly, at 15:00."
+  },
+  "sondag": {
+    "date": "Sunday, March 24, 2024",
+    "copy": "Take a dip in the pool to wash off that hangover. Breakfast starts again at 08:00. Have a safe journey back, and thank you for attending our special weekend."
+  }
 }

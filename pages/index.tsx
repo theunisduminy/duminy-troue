@@ -17,7 +17,6 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <br></br>
       <Head>
         <title>Duminy Troue</title>
         <link rel='icon' href='/favicon.ico' />

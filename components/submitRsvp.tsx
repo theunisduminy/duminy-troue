@@ -40,15 +40,15 @@ export default function RsvpForm({ onSubmit, language }: SubmitMainGuestProps) {
       await updateGuest(guestCellNumber, isAttending, isVegetarian);
 
       if (guest.status !== 'success') {
-        setError('Kyk of jou nommer reg is, asseblief.');
+        setError(`${translation.number_error}`);
       } else if (isAttending === undefined || isVegetarian === undefined) {
-        setError('Kyk hier, jy moet nou kies of jy kan kom en wat jy wil eet.');
+        setError(`${translation.rsvp_error}`);
       } else {
         onSubmit(true, guest, isVegetarian);
       }
     } catch (error) {
       console.error(error);
-      setError('Iets het verkeerd gegaan. Bel vir Theunis en sê vir hom hy is kak met coding.');
+      setError('Iets het verkeerd gegaan. Bel vir Theunis en sê vir hom die website is kak.');
     }
   };
 

@@ -33,9 +33,9 @@ export default function Rsvp() {
         <title>Duminy Troue</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <button onClick={handleLanguageChange}>{translation.button}</button>
 
       <main>
+        <button onClick={handleLanguageChange}>{translation.button}</button>
         {Header(translation.naweek_bywoon, true)}
         <div>
           {/* RSVP Form for main guest */}

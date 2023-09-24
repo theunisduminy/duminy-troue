@@ -9,6 +9,7 @@ export default function successfulRsvp(guestDetails: Record<string, any>, langua
 
   return (
     <div className={styles.personalMessage}>
+      <label>Sukses!</label>
       <label>{personalMessage}</label>
       {/* Cards for linking to other pages */}
       {LinkCards({ language })}
