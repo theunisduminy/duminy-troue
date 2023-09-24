@@ -30,5 +30,7 @@
   "sondag": {
     "date": "Sunday, March 24, 2024",
     "copy": "Take a dip in the pool to wash off that hangover. Breakfast starts again at 08:00. Have a safe journey back, and thank you for attending our special weekend."
-  }
+  },
+  "successfulRsvp": "Thanks, we are very excited to celebrate our big day with you!",
+  "unSuccessfulRsvp": "Thanks for letting us know. We're very sad we won't be able to celebrate our big day with you."
 }

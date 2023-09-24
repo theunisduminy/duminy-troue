@@ -1,4 +1,4 @@
-import { promises } from 'dns';
+import { normalizePhoneNumber } from '../normalizeNumber';
 
 /**
  * Fetch the guest details
@@ -7,8 +7,11 @@ import { promises } from 'dns';
  */
 export async function getGuest(cellNumber: string) {
   const trimmedNumber = cellNumber.trim();
+  const normalizedNumber = normalizePhoneNumber(trimmedNumber);
 
-  const response = await fetch(`/api/guests/${encodeURIComponent(trimmedNumber) || 'wrong'}`, {
+  console.log(normalizedNumber);
+
+  const response = await fetch(`/api/guests/${encodeURIComponent(normalizedNumber) || 'wrong'}`, {
     headers: {
       'Content-Type': 'application/json',
     },
@@ -28,13 +31,16 @@ export async function updateGuest(
   rsvpDecision: boolean | undefined,
   dietOption: boolean | undefined,
 ) {
-  const trimmedName = cellNumber.trim();
+  const trimmedNumber = cellNumber.trim();
+  const normalizedNumber = normalizePhoneNumber(trimmedNumber);
 
-  const response = await fetch(`/api/guests/${encodeURIComponent(trimmedName) || 'wrong'}`, {
+  console.log(normalizedNumber);
+
+  const response = await fetch(`/api/guests/${encodeURIComponent(normalizedNumber) || 'wrong'}`, {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ rsvp: rsvpDecision, vegetarian: dietOption }),
+    body: JSON.stringify({ rsvp: rsvpDecision, vegetarian: dietOption || false }),
     method: 'PATCH',
   });
 

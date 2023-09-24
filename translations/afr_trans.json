@@ -30,5 +30,7 @@
   "sondag": {
     "date": "Sondag, 24 Maart 2024",
     "copy": "Gaan vat 'n dip in die swembad om daai babbelas af te spoel. Ontbyt begin weer van 08:00 af. Veilig terug ry, en dankie dat jy ons spesiale naweek bygewoon het."
-  }
+  },
+  "successfulRsvp": "Dankie, ons sien baie uit om saam jou ons groot dag te vier!",
+  "unSuccessfulRsvp": "Dankie vir die laat weet. Ons is hartseer dat jy nie saam ons die dag sal kan vier nie."
 }

@@ -2,11 +2,16 @@ import Head from 'next/head';
 import styles from '@/../styles/Home.module.css';
 import Header from '../components/header';
 import dayPlan from '../components/dayInfo';
-import { useState } from 'react';
 import { getTranslation } from '../lib/language';
+import useLanguageStore from '../lib/store';
 
 export default function Naweekplan() {
-  const [language, setLanguage] = useState<'afr' | 'eng'>('afr');
+  const { language, setLanguage } = useLanguageStore((state) => {
+    return {
+      language: state.language,
+      setLanguage: state.setLanguage,
+    };
+  });
 
   const handleLanguageChange = () => {
     const newLanguage = language === 'eng' ? 'afr' : 'eng';

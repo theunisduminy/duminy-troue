@@ -5,15 +5,25 @@ import RsvpForm from '../components/submitRsvp';
 import successfulRsvp from '../components/successfulRsvp';
 import Header from '../components/header';
 import { getTranslation } from '../lib/language';
+import useLanguageStore from '../lib/store';
 
 export interface submitMainGuestProps {
-  submitMainGuest: (isSubmitted: boolean, guestData: Record<string, any>, isWithSomeone: boolean) => void;
+  submitMainGuest: (
+    isSubmitted: boolean,
+    guestData: Record<string, any>,
+    isWithSomeone: boolean,
+  ) => void;
 }
 
 export default function Rsvp() {
   const [mainGuestSubmitted, setMainGuestSubmitted] = useState(false);
   const [guestDetails, setGuestDetails] = useState<Record<string, any>>({});
-  const [language, setLanguage] = useState<'afr' | 'eng'>('afr');
+  const { language, setLanguage } = useLanguageStore((state) => {
+    return {
+      language: state.language,
+      setLanguage: state.setLanguage,
+    };
+  });
 
   const handleLanguageChange = () => {
     const newLanguage = language === 'eng' ? 'afr' : 'eng';

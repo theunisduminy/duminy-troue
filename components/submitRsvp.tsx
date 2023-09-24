@@ -7,7 +7,11 @@ import { getTranslation } from '../lib/language';
 
 interface SubmitMainGuestProps {
   // other prop definitions
-  onSubmit: (isSubmitted: boolean, guestData: Record<string, any>, isVegetarian: boolean | undefined) => void;
+  onSubmit: (
+    isSubmitted: boolean,
+    guestData: Record<string, any>,
+    isVegetarian: boolean | undefined,
+  ) => void;
   language: 'afr' | 'eng';
 }
 
@@ -41,7 +45,10 @@ export default function RsvpForm({ onSubmit, language }: SubmitMainGuestProps) {
 
       if (guest.status !== 'success') {
         setError(`${translation.number_error}`);
-      } else if (isAttending === undefined || isVegetarian === undefined) {
+      } else if (
+        isAttending === undefined ||
+        (isAttending === true && isVegetarian === undefined)
+      ) {
         setError(`${translation.rsvp_error}`);
       } else {
         onSubmit(true, guest, isVegetarian);
@@ -85,15 +92,19 @@ export default function RsvpForm({ onSubmit, language }: SubmitMainGuestProps) {
         />
 
         {/* Diet option */}
-        <div className={styles.vl}></div>
-        <SelectButtonComponent
-          selection={isVegetarian}
-          name={'diet'}
-          label={translation.dieet}
-          buttonOptions={['Vegetarian 🥦', translation.vleis]}
-          showIcons={false}
-          handleSelectChange={handleDietChange}
-        />
+        {isAttending && <div className={styles.vl}></div>}
+
+        {isAttending && (
+          <SelectButtonComponent
+            selection={isVegetarian}
+            name={'diet'}
+            label={translation.dieet}
+            buttonOptions={['Vegetarian 🥦', translation.vleis]}
+            showIcons={false}
+            handleSelectChange={handleDietChange}
+          />
+        )}
+
         <div className={styles.vl}></div>
 
         {/* Submit button */}
