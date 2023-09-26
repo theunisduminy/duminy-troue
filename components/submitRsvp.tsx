@@ -20,6 +20,7 @@ export default function RsvpForm({ onSubmit, language }: SubmitMainGuestProps) {
   const [isAttending, setIsAttending] = useState<boolean | undefined>();
   const [isVegetarian, setGuestDiet] = useState<boolean | undefined>();
   const [error, setError] = useState<string>('');
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(true); // Step 1
 
   const translation = getTranslation(language);
 
@@ -40,6 +41,8 @@ export default function RsvpForm({ onSubmit, language }: SubmitMainGuestProps) {
     event.preventDefault();
 
     try {
+      setIsSubmitting(true); // Start submission, show loading spinner
+
       const guest = await getGuest(guestCellNumber);
       await updateGuest(guestCellNumber, isAttending, isVegetarian);
 
@@ -56,6 +59,8 @@ export default function RsvpForm({ onSubmit, language }: SubmitMainGuestProps) {
     } catch (error) {
       console.error(error);
       setError('Iets het verkeerd gegaan. Bel vir Theunis en sê vir hom die website is kak.');
+    } finally {
+      setIsSubmitting(false); // Stop submission, hide loading spinner
     }
   };
 
@@ -107,10 +112,17 @@ export default function RsvpForm({ onSubmit, language }: SubmitMainGuestProps) {
 
         <div className={styles.vl}></div>
 
-        {/* Submit button */}
-        <button type='submit'>
-          <i className='fa fa-arrow-right'></i>
-        </button>
+        {/* Conditional rendering of loading spinner */}
+        {isSubmitting ? (
+          <div className={styles.loading}>
+            <i className='fa fa-spinner fa-spin'></i>{' '}
+          </div>
+        ) : (
+          /* Submit button */
+          <button type='submit'>
+            <i className='fa fa-arrow-right'></i>
+          </button>
+        )}
       </form>
     </div>
   );

@@ -21,12 +21,7 @@ export default function Naweekplan() {
   const translation = getTranslation(language);
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Duminy Troue</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-
+    <>
       <main>
         <button onClick={handleLanguageChange}>{translation.button}</button>
         {Header('Naweekplan')}
@@ -50,10 +45,9 @@ export default function Naweekplan() {
           copy: `${translation.sondag.copy}`,
         })}
       </main>
-
       <footer>
         <span>Gebou deur Theunis Duminy.</span>
       </footer>
-    </div>
+    </>
   );
 }

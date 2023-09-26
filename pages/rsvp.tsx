@@ -38,12 +38,7 @@ export default function Rsvp() {
   };
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Duminy Troue</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-
+    <>
       <main>
         <button onClick={handleLanguageChange}>{translation.button}</button>
         {Header(translation.naweek_bywoon, true)}
@@ -54,10 +49,9 @@ export default function Rsvp() {
           {mainGuestSubmitted && successfulRsvp(guestDetails, language)}
         </div>
       </main>
-
       <footer>
         <span>Gebou deur Theunis Duminy.</span>
       </footer>
-    </div>
+    </>
   );
 }

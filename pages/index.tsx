@@ -21,12 +21,7 @@ export default function Home() {
   const translation = getTranslation(language);
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Duminy Troue</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-
+    <>
       <main>
         {/* Page header */}
         <button onClick={handleLanguageChange}>{translation.button}</button>
@@ -54,6 +49,6 @@ export default function Home() {
       <footer>
         <span>Gebou deur Theunis Duminy.</span>
       </footer>
-    </div>
+    </>
   );
 }
