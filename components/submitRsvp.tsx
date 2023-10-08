@@ -20,7 +20,7 @@ export default function RsvpForm({ onSubmit, language }: SubmitMainGuestProps) {
   const [isAttending, setIsAttending] = useState<boolean | undefined>();
   const [isVegetarian, setGuestDiet] = useState<boolean | undefined>();
   const [error, setError] = useState<string>('');
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(true); // Step 1
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false); // Step 1
 
   const translation = getTranslation(language);
 
