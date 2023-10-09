@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useState } from 'react';
 import RsvpForm from '../components/SubmitRsvp';
 import SuccessfulRsvp from '../components/SuccessfulRsvp';
-import Header from '../components/Header';
+import Header from '../components/Header-1';
 import LanguageSwitchButtons from '../components/LanguageSwitchButtons';
 import { getTranslation } from '../lib/language';
 import useLanguageStore from '../lib/store';

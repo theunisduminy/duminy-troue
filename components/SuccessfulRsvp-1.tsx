@@ -1,5 +1,5 @@
 import styles from '@/../styles/Form.module.css';
-import LinkCards from './LinkCards';
+import LinkCards from './LinkCards-1';
 import { getTranslation } from '../lib/language';
 
 const SuccessfulRsvp: React.FC = (
