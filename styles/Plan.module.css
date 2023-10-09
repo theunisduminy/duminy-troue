@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
+  line-height: 1.6;
 }
 
 .dayInfo h2 {

@@ -37,7 +37,8 @@ const SelectButtonComponent: React.FC<SelectButtonProps> = ({
             onChange={(e) => handleSelectChange(e.target.checked)}
           />
           <span className={styles.slider}>
-            {buttonOptions[0]} {showIcons ? <i className='fa fa-check'></i> : null}
+            {buttonOptions[0]}{' '}
+            {showIcons ? <i className='fa fa-check'></i> : null}
           </span>
         </label>
         <label className={`${styles.switch} ${styles.two}`}>
@@ -49,7 +50,8 @@ const SelectButtonComponent: React.FC<SelectButtonProps> = ({
             onChange={(e) => handleSelectChange(!e.target.checked)}
           />
           <span className={styles.slider}>
-            {buttonOptions[1]} {showIcons ? <i className='fa fa-times'></i> : null}
+            {buttonOptions[1]}{' '}
+            {showIcons ? <i className='fa fa-times'></i> : null}
           </span>
         </label>
       </div>

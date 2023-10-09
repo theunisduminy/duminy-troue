@@ -1,7 +1,7 @@
-import { log } from 'console';
 import clientPromise from '../../../lib/mongodb';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async (req, res) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   let guest;
   try {
     const { phone } = req.query;
@@ -13,9 +13,13 @@ export default async (req, res) => {
     }
 
     if (req.method === 'PATCH') {
-      guest = await db
-        .collection('guests')
-        .findOneAndUpdate({ phone }, { $set: req.body }, { new: true, runValidators: true });
+      guest = await db.collection('guests').findOneAndUpdate(
+        { phone },
+        { $set: req.body },
+        {
+          returnDocument: 'after',
+        },
+      );
     }
 
     if (!guest) {

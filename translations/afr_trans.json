@@ -1,8 +1,8 @@
 {
   "month": "Maart",
-  "home_title": "Theunis Duminy & Mignon Du Plessis trou!",
+  "home_title": "TROU!",
   "rsvp_header": "RSVP",
-  "rsvp_sub": "Laat weet of jy en jou metgeselle kan kom.",
+  "rsvp_sub": "Laat weet of jy die naweek sal kan bywoon.",
   "naweek_plan_header": "Naweekplan",
   "naweek_plan_sub": "Waar, wanneer, hoe laat en wat 'n mens dra na so ding.",
   "geskenk_idees_header": "Geskenk idees",
@@ -10,11 +10,27 @@
   "waar_die_troue_is_1": "Die troue is in",
   "waar_die_troue_is_2": "as jy dit nog nie uitgefigure het nie.",
   "cellphone_num": "Wat is jou selfoon nommer?",
-  "naweek_bywoon": "Laat weet of jy die naweek sal kan bywoon.",
+  "naweek_bywoon": "Sal jy die naweek kan bywoon?",
   "button": "English please!",
-  "attend": "Luister, kan jy kom?",
+  "attend": "Kan jy die naweek bywoon?",
   "dieet": "Dieet vereistes?",
   "vleis": "Rooivleis 🥩",
   "home_header": "Tuis",
-  "home_sub": "Gaan terug na die eerste blad - die Home page"
+  "home_sub": "Gaan terug na die eerste blad - die Home page",
+  "number_error": "Kyk of jou nommer reg is, asseblief",
+  "rsvp_error": "Laat weet of jy kan kom en of jy enige dieet vereistes het",
+  "vrydag": {
+    "date": "Vrydag, 22 Maart 2024",
+    "copy": "Dis 'n langnaweek - sit verlof in! Almal kan in boek by hulle akkomodasie van 15:00 af en die aand 'n heerlike spit geniet. Alhoewel ons in die Karoo is, gaan ons nogsteeds Heidelberg lam eet."
+  },
+  "saterdag": {
+    "date": "Saterdag, 23 Maart 2024",
+    "copy": "Die groot dag. Ontbyt begin van 08:00 af in die hotel. Hou jouself gerus besig met al die aktiwiteite in Matjiesfontein, maar maak seker dat jy 15:00 aangetrek en reg is om te kom kyk hoe ek en Mignon trou."
+  },
+  "sondag": {
+    "date": "Sondag, 24 Maart 2024",
+    "copy": "Gaan vat 'n dip in die swembad om daai babbelas af te spoel. Ontbyt begin weer van 08:00 af. Veilig terug ry, en dankie dat jy ons spesiale naweek bygewoon het."
+  },
+  "successfulRsvp": "Dankie, ons sien baie uit om saam jou ons groot dag te vier!",
+  "unSuccessfulRsvp": "Dankie vir die laat weet. Ons is hartseer dat jy nie saam ons die dag sal kan vier nie."
 }
