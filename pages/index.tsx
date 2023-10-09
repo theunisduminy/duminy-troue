@@ -1,7 +1,7 @@
 import { getTranslation } from '../lib/language';
 import Head from 'next/head';
-import LinkCards from '../components/LinkCards-1';
-import Header from '../components/Header-1';
+import LinkCards from '../components/LinkCards';
+import Header from '../components/Header';
 import useLanguageStore from '../lib/store';
 import LanguageSwitchButtons from '../components/LanguageSwitchButtons';
 

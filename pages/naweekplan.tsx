@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import styles from '@/../styles/Home.module.css';
-import Header from '../components/Header-1';
+import Header from '../components/Header';
 import dayPlan from '../components/dayInfo';
 import { getTranslation } from '../lib/language';
 import useLanguageStore from '../lib/store';
