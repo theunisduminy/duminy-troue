@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { getGuest } from '../lib/utils/guestRequests';
 import { updateGuest } from '../lib/utils/guestRequests';
-import SelectButtonComponent from './SelectionButtons-1';
+import SelectButtonComponent from './SelectionButtons';
 import { getTranslation } from '../lib/language';
 
 interface SubmitMainGuestProps {
