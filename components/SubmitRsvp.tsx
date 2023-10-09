@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import styles from '../styles/Form.module.css';
 import { getGuest } from '../lib/utils/guestRequests';
 import { updateGuest } from '../lib/utils/guestRequests';
-import SelectButtonComponent from './selectionButtons';
+import SelectButtonComponent from './SelectionButtons';
 import { getTranslation } from '../lib/language';
 
 interface SubmitMainGuestProps {
@@ -15,12 +14,12 @@ interface SubmitMainGuestProps {
   language: 'afr' | 'eng';
 }
 
-export default function RsvpForm({ onSubmit, language }: SubmitMainGuestProps) {
+const RsvpForm: React.FC<SubmitMainGuestProps> = ({ onSubmit, language }) => {
   const [guestCellNumber, setGuestCellNumber] = useState('');
   const [isAttending, setIsAttending] = useState<boolean | undefined>();
   const [isVegetarian, setGuestDiet] = useState<boolean | undefined>();
   const [error, setError] = useState<string>('');
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false); // Step 1
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const translation = getTranslation(language);
 
@@ -41,10 +40,10 @@ export default function RsvpForm({ onSubmit, language }: SubmitMainGuestProps) {
     event.preventDefault();
 
     try {
-      setIsSubmitting(true); // Start submission, show loading spinner
+      setIsSubmitting(true);
 
-      const guest = await getGuest(guestCellNumber);
       await updateGuest(guestCellNumber, isAttending, isVegetarian);
+      const guest = await getGuest(guestCellNumber);
 
       if (guest.status !== 'success') {
         setError(`${translation.number_error}`);
@@ -58,25 +57,28 @@ export default function RsvpForm({ onSubmit, language }: SubmitMainGuestProps) {
       }
     } catch (error) {
       console.error(error);
-      setError('Iets het verkeerd gegaan. Bel vir Theunis en sê vir hom die website is kak.');
+      setError(
+        'Iets het verkeerd gegaan. Bel vir Theunis en sê vir hom die website is kak.',
+      );
     } finally {
-      setIsSubmitting(false); // Stop submission, hide loading spinner
+      setIsSubmitting(false);
     }
   };
 
   return (
     <div>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        {/* Error message */}
+      <form
+        className='flex flex-col p-1 w-[300px] items-center'
+        onSubmit={handleSubmit}
+      >
         {error !== '' && (
-          <div className={styles.error}>
+          <div className='text-red-500 mb-4'>
             <label>{`${error}`}</label>
           </div>
         )}
 
-        {/* Cellphone number */}
         <input
-          className={styles.input}
+          className='input border border-[#102135] rounded-lg p-4 w-[100%] h-12 grid text-center'
           type='text'
           id='name'
           placeholder={translation.cellphone_num}
@@ -84,9 +86,8 @@ export default function RsvpForm({ onSubmit, language }: SubmitMainGuestProps) {
           onChange={handleNameChange}
         />
 
-        <div className={styles.vl}></div>
+        <div className='border-l-4 border-[#f1cdcd] h-10 mx-auto my-4'></div>
 
-        {/* RSVP */}
         <SelectButtonComponent
           selection={isAttending}
           name={'attendance'}
@@ -96,8 +97,9 @@ export default function RsvpForm({ onSubmit, language }: SubmitMainGuestProps) {
           handleSelectChange={handleSelectChange}
         />
 
-        {/* Diet option */}
-        {isAttending && <div className={styles.vl}></div>}
+        {isAttending && (
+          <div className='border-l-4 border-[#f1cdcd] h-10 mx-auto my-4'></div>
+        )}
 
         {isAttending && (
           <SelectButtonComponent
@@ -110,20 +112,24 @@ export default function RsvpForm({ onSubmit, language }: SubmitMainGuestProps) {
           />
         )}
 
-        <div className={styles.vl}></div>
-
-        {/* Conditional rendering of loading spinner */}
         {isSubmitting ? (
-          <div className={styles.loading}>
-            <i className='fa fa-spinner fa-spin'></i>{' '}
+          <div className='text-3xl'>
+            <i className='fa fa-spinner fa-spin text-4xl text-[#f1cdcd]'></i>
           </div>
         ) : (
-          /* Submit button */
-          <button type='submit'>
-            <i className='fa fa-arrow-right'></i>
-          </button>
+          <>
+            <div className='border-l-4 border-[#f1cdcd] h-10 mx-auto my-4'></div>
+            <button
+              type='submit'
+              className='text-xl bg-[#f1cdcd;] w-40 border border-[#102135] rounded-2xl'
+            >
+              <i className='fa fa-arrow-right'></i>
+            </button>
+          </>
         )}
       </form>
     </div>
   );
-}
+};
+
+export default RsvpForm;

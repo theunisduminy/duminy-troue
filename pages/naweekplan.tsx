@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import styles from '@/../styles/Home.module.css';
-import Header from '../components/header';
+import Header from '../components/Header';
 import dayPlan from '../components/dayInfo';
 import { getTranslation } from '../lib/language';
 import useLanguageStore from '../lib/store';
@@ -24,7 +24,7 @@ export default function Naweekplan() {
     <>
       <main>
         <button onClick={handleLanguageChange}>{translation.button}</button>
-        {Header('Naweekplan')}
+        <Header link='lord-milner-signed.png' />
         <div className={styles.vl}></div>
 
         {/* Vrydag */}

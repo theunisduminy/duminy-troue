@@ -1,8 +1,11 @@
 import styles from '@/../styles/Form.module.css';
-import LinkCards from './linkCards';
+import LinkCards from './LinkCards';
 import { getTranslation } from '../lib/language';
 
-export default function successfulRsvp(guestDetails: Record<string, any>, language: 'afr' | 'eng') {
+const SuccessfulRsvp: React.FC = (
+  guestDetails: Record<string, any>,
+  language: 'afr' | 'eng',
+) => {
   // variables
   const translation = getTranslation(language);
   const rsvpStatus = guestDetails.data.guest.rsvp;
@@ -11,17 +14,19 @@ export default function successfulRsvp(guestDetails: Record<string, any>, langua
       ? guestDetails.data.guest.message
       : translation.successfulRsvp;
 
+  console.log(rsvpStatus);
+
   return (
     <div className={styles.personalMessage}>
       {rsvpStatus ? (
         <>
-          <img src='images/green-check.png' alt='green check' className={styles.rsvpPic} />
-          <label>{personalMessage}</label>
+          <label className='text-[#102135]'>{personalMessage}</label>
         </>
       ) : (
         <>
-          <img src='images/red-check.png' alt='red check' className={styles.rsvpPic} />
-          <label>{translation.unSuccessfulRsvp}</label>
+          <label className='text-[#102135]'>
+            {translation.unSuccessfulRsvp}
+          </label>
         </>
       )}
 
@@ -29,4 +34,6 @@ export default function successfulRsvp(guestDetails: Record<string, any>, langua
       {LinkCards({ language })}
     </div>
   );
-}
+};
+
+export default SuccessfulRsvp;

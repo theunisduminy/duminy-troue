@@ -21,7 +21,9 @@
     "**/*.tsx",
     "pages/api/guests.js",
     "pages/rsvp/rsvp.",
-    "pages/_app.js"
+    "pages/_app.js",
+    "pages/_document.js",
+    "pages/api/guests/[phone].js"
   ],
   "exclude": ["node_modules"]
 }

@@ -11,12 +11,15 @@ export async function getGuest(cellNumber: string) {
 
   console.log(normalizedNumber);
 
-  const response = await fetch(`/api/guests/${encodeURIComponent(normalizedNumber) || 'wrong'}`, {
-    headers: {
-      'Content-Type': 'application/json',
+  const response = await fetch(
+    `/api/guests/${encodeURIComponent(normalizedNumber) || 'wrong'}`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'GET',
     },
-    method: 'GET',
-  });
+  );
 
   return response.json();
 }
@@ -34,15 +37,19 @@ export async function updateGuest(
   const trimmedNumber = cellNumber.trim();
   const normalizedNumber = normalizePhoneNumber(trimmedNumber);
 
-  console.log(normalizedNumber);
-
-  const response = await fetch(`/api/guests/${encodeURIComponent(normalizedNumber) || 'wrong'}`, {
-    headers: {
-      'Content-Type': 'application/json',
+  const response = await fetch(
+    `/api/guests/${encodeURIComponent(normalizedNumber) || 'wrong'}`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        rsvp: rsvpDecision,
+        vegetarian: dietOption || false,
+      }),
+      method: 'PATCH',
     },
-    body: JSON.stringify({ rsvp: rsvpDecision, vegetarian: dietOption || false }),
-    method: 'PATCH',
-  });
+  );
 
   return response.json();
 }
