@@ -1,22 +1,31 @@
-import styles from '@/../styles/Header.module.css';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-export default function Header(title: string, showTitle: boolean = true) {
+interface HeaderProps {
+  link?: string;
+  // showTitle?: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({ link }) => {
   const router = useRouter();
   const path = router.pathname;
 
   return (
-    <div className={styles.homeNav}>
+    <>
       {path !== '/' && (
-        <Link className={styles.backLink} href='/'>
+        <Link href='/' className='text-[#102135] hover:underline py-5'>
           <i className='fa fa-arrow-left'></i> Back to Home
         </Link>
       )}
-      <br></br>
-      <img src='./images/lord-milner-signed.png' className={styles.hotel} />
-      {showTitle && <h1 className={styles.title}>{title}</h1>}
-    </div>
+      <div className='text-center max-w-2xl mx-auto flex align-center justify-center'>
+        <img
+          src={`./images/${link}`}
+          className='w-[90%] py-5 md:w-70 md:px-20'
+          alt='Header Image'
+        />
+      </div>
+    </>
   );
-}
+};
+
+export default Header;

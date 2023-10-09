@@ -5,7 +5,6 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <title>Duminy Troue</title>
         <link rel='icon' href='/favicon.ico' />
         <link
           rel='stylesheet'
