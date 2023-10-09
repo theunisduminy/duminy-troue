@@ -1,7 +1,7 @@
 import { getTranslation } from '../lib/language';
 
 const cardStyling =
-  'bg-[#f1cdcd] m-4 p-4 w-80 text-center rounded-lg border-solid border-2 border-[#102135] text-[#102135] transition duration-200 transform hover:scale-105';
+  'bg-[#f1cdcd] m-4 p-4 w-80 text-center rounded-lg border-solid border border-[#102135] text-[#102135] transition duration-200 transform hover:scale-105';
 
 // const cardStyling =
 //   'bg-[#899481] m-4 p-4 w-80 text-center rounded-lg border-solid border-2 border-[#102135] text-white transition duration-200 transform hover:scale-105';

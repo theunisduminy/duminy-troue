@@ -53,8 +53,7 @@ export default function Home() {
           {LinkCards({ showBackToHome: false, language })}
 
           {/* Bottom section of the page */}
-          <div className='border-l-4 border-[#f1cdcd] h-10 mx-auto my-4'></div>
-          <div className='px-2 mb-3'>
+          <div className='px-2 py-10 mb-3'>
             <p className='leading-6 text-gray-500'>
               {translation.waar_die_troue_is_1}{' '}
               <a href={locationLink}>
@@ -68,7 +67,7 @@ export default function Home() {
         </div>
       </main>
       {/* Footer element */}
-      <footer>
+      <footer className='border-solid border-t-2 border-[#102135]'>
         <span>Gebou deur Theunis Duminy.</span>
       </footer>
     </>
