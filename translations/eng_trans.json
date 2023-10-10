@@ -32,5 +32,23 @@
     "copy": "Take a dip in the pool to wash off that hangover. Breakfast starts again from 08:00 - 10:00. Have a safe journey back, and thank you for attending our special weekend."
   },
   "successfulRsvp": "Thanks, we are very excited to celebrate our big day with you!",
-  "unSuccessfulRsvp": "Thanks for letting us know. We're very sad we won't be able to celebrate our big day with you."
+  "unSuccessfulRsvp": "Thanks for letting us know. We're very sad we won't be able to celebrate our big day with you.",
+  "faq": [
+    {
+      "question": "What is React?",
+      "answer": "What is React?"
+    },
+    {
+      "question": "What is React?",
+      "answer": "What is React?"
+    },
+    {
+      "question": "What is React?",
+      "answer": "What is React?"
+    },
+    {
+      "question": "What is React?",
+      "answer": "What is React?"
+    }
+  ]
 }

@@ -86,7 +86,7 @@ const RsvpForm: React.FC<SubmitMainGuestProps> = ({ onSubmit, language }) => {
           onChange={handleNameChange}
         />
 
-        <div className='border-l-4 border-[#f1cdcd] h-10 mx-auto my-4'></div>
+        <div className='border-l-4 border-[#f1cdcd] h-8 mx-auto my-4'></div>
 
         <SelectButtonComponent
           selection={isAttending}
@@ -98,7 +98,7 @@ const RsvpForm: React.FC<SubmitMainGuestProps> = ({ onSubmit, language }) => {
         />
 
         {isAttending && (
-          <div className='border-l-4 border-[#f1cdcd] h-10 mx-auto my-4'></div>
+          <div className='border-l-4 border-[#f1cdcd] h-8 mx-auto my-4'></div>
         )}
 
         {isAttending && (
@@ -113,12 +113,12 @@ const RsvpForm: React.FC<SubmitMainGuestProps> = ({ onSubmit, language }) => {
         )}
 
         {isSubmitting ? (
-          <div className='text-3xl'>
-            <i className='fa fa-spinner fa-spin text-4xl text-[#f1cdcd]'></i>
+          <div className='text-3xl pt-10'>
+            <i className='fa fa-spinner fa-spin  text-4xl text-[#f1cdcd]'></i>
           </div>
         ) : (
           <>
-            <div className='border-l-4 border-[#f1cdcd] h-10 mx-auto my-4'></div>
+            <div className='border-l-4 border-[#f1cdcd] h-8 mx-auto my-4'></div>
             <button
               type='submit'
               className='text-xl bg-[#f1cdcd;] w-40 border border-[#102135] rounded-2xl'

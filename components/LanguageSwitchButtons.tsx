@@ -29,20 +29,20 @@ const LanguageSwitchButtons: React.FC<LanguageSwitchButtonsProps> = () => {
   };
 
   return (
-    <div className='flex border-2 border-black rounded-xl sticky top-5 z-50 bg-white'>
+    <div className='flex border-2 border-black rounded-xl sticky top-2 z-50 bg-white'>
       <button
         onClick={handleAfrikaansClick}
-        className={`w-[100px] rounded-l-xl ${
+        className={`w-[80px] text-xs rounded-l-xl ${
           isAfrikaans ? 'bg-[#f1cdcd] ' : 'bg-white'
-        }  px-4 py-2 sm:w-[200px]`}
+        }  px-4 py-1.5 sm:w-[100px]`}
       >
         Afrikaans
       </button>
       <button
         onClick={handleEnglishClick}
-        className={`w-[100px] rounded-r-xl ${
+        className={`w-[80px]  text-xs rounded-r-xl ${
           isEnglish ? 'bg-[#f1cdcd]' : 'bg-white text-black'
-        }  px-4 py-2 sm:w-[200px]`}
+        }  px-4 py-1.5 sm:w-[100px]`}
       >
         English
       </button>

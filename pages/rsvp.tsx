@@ -43,9 +43,9 @@ export default function Rsvp() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main>
+      <main className='py-5 bg-gradient-to-b from-[#EFDDCD] to-white'>
         <LanguageSwitchButtons />
-        <Header link='lord-milner-signed.png' />
+        <Header link='lord-milner-no-bg.png' />
 
         {!mainGuestSubmitted && (
           <div className='text-3xl px-10 py-5 text-center text-[#102135]'>
@@ -62,8 +62,8 @@ export default function Rsvp() {
           {mainGuestSubmitted && SuccessfulRsvp(guestDetails, language)}
         </div>
       </main>
-      <footer>
-        <span>Gebou deur Theunis Duminy.</span>
+      <footer className='border-solid border-t-2 border-[#102135]'>
+        <span>Gebou deur Theunis.</span>
       </footer>
     </>
   );

@@ -1,25 +1,8 @@
-/* 
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  // padding: 2rem;
-  border-radius: 0.5rem;
-  margin-top: 5%;
-} 
-
-*/
-
-.rsvpPic {
-  width: 50px;
-}
-
 .label {
   margin-top: 5% 0;
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #85969a;
+  color: #102135;
   text-align: center;
 }
 
@@ -92,51 +75,21 @@
   opacity: 0.7;
 }
 
-.vl {
-  border-left: 8px solid #f1cdcd;
-  height: 100px;
-  position: relative;
-  margin: 5% 50%;
-}
-
 .rsvp {
   display: flex;
   justify-content: center;
 }
 
 @media only screen and (max-width: 600px) {
-  .personalMessage {
-    color: #85969a;
-    text-align: center;
-  }
-
-  .personalMessage label {
-    margin: 10% 35px;
-    display: block;
-    font-size: 18px;
-  }
-
   .input {
     width: 100%;
     font-size: 18px;
     padding: 12px;
   }
 
-  .vl {
-    border-left: 3px solid #f1cdcd;
-    height: 30px;
-    position: relative;
-    margin: 10px 50%;
-  }
-
   .fa {
     font-size: 25px !important;
   }
-
-  /* .form {
-    padding: 0 30px;
-    display: block;
-  } */
 
   .label {
     display: block;

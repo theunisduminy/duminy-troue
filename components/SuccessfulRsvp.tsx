@@ -1,4 +1,3 @@
-import styles from '@/../styles/Form.module.css';
 import LinkCards from './LinkCards';
 import { getTranslation } from '../lib/language';
 
@@ -17,22 +16,18 @@ const SuccessfulRsvp: React.FC = (
   console.log(rsvpStatus);
 
   return (
-    <div className={styles.personalMessage}>
-      {rsvpStatus ? (
-        <>
+    <>
+      <div className='text-center text-lg px-8 pb-10'>
+        {rsvpStatus ? (
           <label className='text-[#102135]'>{personalMessage}</label>
-        </>
-      ) : (
-        <>
+        ) : (
           <label className='text-[#102135]'>
             {translation.unSuccessfulRsvp}
           </label>
-        </>
-      )}
-
-      {/* Cards for linking to other pages */}
-      {LinkCards({ language })}
-    </div>
+        )}
+      </div>
+      <LinkCards language={language} />
+    </>
   );
 };
 
