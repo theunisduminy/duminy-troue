@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Header from '../components/Header';
 import useLanguageStore from '../lib/store';
 import { getTranslation } from '../lib/language';
+import LanguageSwitchButtons from '../components/LanguageSwitchButtons';
 
 export default function Registry() {
   const { language, setLanguage } = useLanguageStore((state) => {
@@ -10,11 +11,6 @@ export default function Registry() {
       setLanguage: state.setLanguage,
     };
   });
-
-  const handleLanguageChange = () => {
-    const newLanguage = language === 'eng' ? 'afr' : 'eng';
-    setLanguage(newLanguage);
-  };
 
   const translation = getTranslation(language);
 
@@ -26,19 +22,19 @@ export default function Registry() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main>
-        <button onClick={handleLanguageChange}>{translation.button}</button>
-        <Header link='lord-milner-signed.png' />
-        <div>
-          <label>
+      <main className='flex flex-col align-center justify-center text-center py-5 bg-gradient-to-b from-[#EFDDCD] to-white'>
+        <LanguageSwitchButtons />
+        <Header link='lord-milner-no-bg.png' />
+        <div className='px-10 text-justify'>
+          <p>
             Ons verwag nie dat enige iemand vir ons geskenke koop nie. Om saam
             ons familie, beste vriende en ander vriende ons groot dag te vier is
             goed genoeg.
-          </label>
+          </p>
         </div>
       </main>
-      <footer>
-        <span>Gebou deur Theunis Duminy.</span>
+      <footer className='border-solid border-t-2 border-[#102135]'>
+        <span>Gebou deur Theunis.</span>
       </footer>
     </>
   );
