@@ -24,7 +24,7 @@ export default function Registry() {
       </Head>
       <main className='flex flex-col align-center justify-center text-center py-5 bg-gradient-to-b from-[#EFDDCD] to-white'>
         <LanguageSwitchButtons />
-        <Header link='lord-milner-no-bg.png' />
+        <Header link='lord-milner-no-bg-min.png' />
         <div className='px-10 text-justify'>
           <p>
             Ons verwag nie dat enige iemand vir ons geskenke koop nie. Om saam

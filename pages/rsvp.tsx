@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import LanguageSwitchButtons from '../components/LanguageSwitchButtons';
 import { getTranslation } from '../lib/language';
 import useLanguageStore from '../lib/store';
+import CountdownTimer from '../components/CountdownTimer';
 
 export interface submitMainGuestProps {
   submitMainGuest: (
@@ -45,7 +46,10 @@ export default function Rsvp() {
       </Head>
       <main className='py-5 bg-gradient-to-b from-[#EFDDCD] to-white'>
         <LanguageSwitchButtons />
-        <Header link='lord-milner-no-bg.png' />
+        <Header link='lord-milner-no-bg-min.png' />
+        <div className='text-center max-w-2xl mx-auto flex flex-col items-center justify-center -m-5 pb-4'>
+          <CountdownTimer targetDate={new Date('2024-03-23T15:00:00')} />
+        </div>
 
         {!mainGuestSubmitted && (
           <div className='text-3xl px-10 py-5 text-center text-[#102135]'>
