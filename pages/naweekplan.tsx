@@ -25,7 +25,7 @@ export default function Naweekplan() {
       </Head>
       <main className='py-5 bg-gradient-to-b from-[#EFDDCD] to-white mb-5'>
         <LanguageSwitchButtons />
-        <Header link='lord-milner-no-bg.png' />
+        <Header link='lord-milner-no-bg-min.png' />
 
         {/* PDF download section */}
         <div className='text-4xl text-[#102135]'>
