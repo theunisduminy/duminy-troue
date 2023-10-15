@@ -7,8 +7,8 @@
   "naweek_plan_sub": "Waar, wanneer, hoe laat en wat 'n mens dra na so ding.",
   "geskenk_idees_header": "Geskenk idees",
   "geskenk_idees_sub": "Goed wat Mignon sê ons nodig het, blykbaar.",
-  "waar_die_troue_is_1": "Die troue is in",
-  "waar_die_troue_is_2": "as jy dit nog nie uitgefigure het nie.",
+  "waar_die_troue_is_1": "Ons trou in",
+  "waar_die_troue_is_2": "en sal graag wil hê jy moet saam ons dit kom beleef en vier.",
   "cellphone_num": "Wat is jou selfoon nommer?",
   "naweek_bywoon": "Sal jy die naweek kan bywoon?",
   "button": "English please!",
@@ -35,20 +35,40 @@
   "unSuccessfulRsvp": "Dankie vir die laat weet. Ons is hartseer dat jy nie saam ons die dag sal kan vier nie.",
   "faq": [
     {
-      "question": "Wanneer is die troue?",
-      "answer": "What is React?"
+      "question": "Wanneer vind die troue plaas?",
+      "answer": "Die troue vind plaas oor die hele naweek van Vrydag die 22ste tot Sondag die 24ste Maart"
     },
     {
-      "question": "What is React?",
-      "answer": "What is React?"
+      "question": "Waar in Matjiesfontein troue julle?",
+      "answer": "Ons gaste neem die hele Matjiesfontein oor vir die naweek, en elke event gaan op 'n verskilende deel van Matjiesfontein plaas vind"
     },
     {
-      "question": "What is React?",
-      "answer": "What is React?"
+      "question": "Hoelaat moet ons Vrydag daar wees?",
+      "answer": "Ons eerste event begin 17:00 Vrydag voor die Lord Milner Hotel"
     },
     {
-      "question": "What is React?",
-      "answer": "What is React?"
+      "question": "Kan ons Vrydag vroeër al kom?",
+      "answer": "Donderdag is 'n vakansie dag, so as jy lus is vir 'n langer naweek sal ons dit baie geniet as ons gaste Vrydag vroeg al deur kom om die dag saam ons te spandeer."
+    },
+    {
+      "question": "Hoelaat kan ons inboek and uitboek by die Hotel?",
+      "answer": "Gaste kan vanaf 11:00 inboek Vrydag, en moet teen 11:00 Sondag weer uitboek"
+    },
+    {
+      "question": "Waar moet ons inboek as ons aankom Vrydag?",
+      "answer": "Gaste moet by die reception van die Hotel inboek om hulle kamer sleutels te kry"
+    },
+    {
+      "question": "Waar eet ons ontbyt, en van hoelaat af?",
+      "answer": "Ontbyt word bedien in die eetkamer van die Hotel vanaf 8:00 tot 10:00 elke oggend. Gaste hoef nie vir die ontbyt te betaal nie, dit is ingesluit by die prys van die kamers"
+    },
+    {
+      "question": "Hoe laat moet ons reg wees vir die troue Saterdag?",
+      "answer": "Ons gaste moet teen 14:00 reg wees voor die Hotel, en sal dan gevat word na die seremonie venue toe"
+    },
+    {
+      "question": "Sal daar 'n kontant kroeg wees?",
+      "answer": "Daar is die Vrydag en die Saterdag aand 'n kontant kroeg wees, maar hulle het kaart fasiliteite"
     }
   ]
 }

@@ -20,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({ link }) => {
       <div className='text-center max-w-2xl mx-auto flex align-center justify-center'>
         <img
           src={`./images/${link}`}
-          className='w-[80%] py-5 md:w-70 md:px-20'
+          className='w-[80%] pt-5 md:w-70 md:px-20'
           alt='Header Image'
         />
       </div>

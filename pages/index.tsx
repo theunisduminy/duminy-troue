@@ -36,13 +36,13 @@ export default function Home() {
         </div>
         <Header link='theunis-mignon-min.png' />
 
-        <div className='pt-8 text-center items-center bg-gradient-to-b from-[#EFDDCD] to-white'>
+        <div className='pt-5 text-center items-center bg-gradient-to-b from-[#EFDDCD] to-white'>
           {/* Date + counter */}
           <div className='pb-6'>
-            <p className='text-4xl text-[#102135] pb-2'>
+            <CountdownTimer targetDate={new Date('2024-03-23T15:00:00')} />
+            <p className='text-4xl text-[#102135] py-5'>
               22-24 {translation.month}, 2024
             </p>
-            <CountdownTimer targetDate={new Date('2024-03-23T15:00:00')} />
           </div>
 
           {/* Lord Milner picture */}
@@ -54,16 +54,14 @@ export default function Home() {
             />
             <div className='px-10 text-lg'>
               <p>
-                Ons trou in{' '}
+                {translation.waar_die_troue_is_1}{' '}
                 <a href={locationLink} className='text-3xl'>
                   <strong className='text-[#4077a9] py-5 hover:underline'>
                     Matjiesfontein
                   </strong>
                 </a>
               </p>
-              <p className='pt-1'>
-                en sal graag wil hê jy moet saam ons dit kom beleef en vier.
-              </p>
+              <p className='pt-1'>{translation.waar_die_troue_is_2}</p>
             </div>
           </div>
 

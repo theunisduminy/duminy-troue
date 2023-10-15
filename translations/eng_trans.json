@@ -7,8 +7,8 @@
   "naweek_plan_sub": "Where, when and what someones wheres to this shindig.",
   "geskenk_idees_header": "Present ideas",
   "geskenk_idees_sub": "Stuff Mignon says we desperately need, apparently.",
-  "waar_die_troue_is_1": "The wedding is in",
-  "waar_die_troue_is_2": "if you haven't figured it out already.",
+  "waar_die_troue_is_1": "We're getting married in",
+  "waar_die_troue_is_2": "and would love for you to come and witness and celebrate it with us.",
   "cellphone_num": "What is your cellphone number?",
   "naweek_bywoon": "Will you be able to attend the weekend?",
   "button": "Afrikaans asseblief!",
@@ -35,20 +35,40 @@
   "unSuccessfulRsvp": "Thanks for letting us know. We're very sad we won't be able to celebrate our big day with you.",
   "faq": [
     {
-      "question": "What is React?",
-      "answer": "What is React?"
+      "question": "When is the wedding?",
+      "answer": "Our wedding will take place over the entire weekend of the 22nd to the 24th of March"
     },
     {
-      "question": "What is React?",
-      "answer": "What is React?"
+      "question": "Where in Matjiesfontein is the wedding taking place?",
+      "answer": "Our guests will be taking over the entire Matjiesfontein for the weekend, and the wedding events will take place at different locactions around Matjiesfontein"
     },
     {
-      "question": "What is React?",
-      "answer": "What is React?"
+      "question": "What time do we need to be there on Friday",
+      "answer": "Our first event starts at 17:00 on Friday in front of the Lord Milner Hotel"
     },
     {
-      "question": "What is React?",
-      "answer": "What is React?"
+      "question": "Can we come earlier on Friday?",
+      "answer": "Thursday is a public holiday, and if you would like to take an extra long weekend we would love our guests to come through early on Friday to spend the day with us"
+    },
+    {
+      "question": "What time can we check-in on Friday and check-out on Sunday?",
+      "answer": "Guests can check in on Friday from 11:00 and should check out by 11:00 on Sunday."
+    },
+    {
+      "question": "Where do we check-in on Friday?",
+      "answer": "Guests need to check-in at the reception of the Hotel where they will get their room keys"
+    },
+    {
+      "question": "Where do we eat breakfast, and from what time?",
+      "answer": "Breakfast is served in the Hotel dining room, and is available from 8:00 until 10:00 each morning. Guests do not have to pay for breakfast as it is included in their room price"
+    },
+    {
+      "question": "What time do we need to be ready for the wedding on Saturday?",
+      "answer": "Guests need to be ready in front of the Hotel by 2:00 PM for the wedding on Saturday."
+    },
+    {
+      "question": "Will there be a cash bar?",
+      "answer": "There is a cash bar on the Friday and Saturday night, but there are card facilities available."
     }
   ]
 }

@@ -21,7 +21,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
         onClick={toggleAccordion}
       >
         <div className='flex justify-between items-center'>
-          <span className='font-semibold text-lg'>{question}</span>
+          <span className='font-semibold text-sm'>{question}</span>
           <i
             className={`fa fa-arrow-down text-lg transform ${
               isOpen ? 'rotate-0' : 'rotate-180'
@@ -31,7 +31,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
         </div>
       </button>
       {isOpen && (
-        <div className='p-4 bg-white rounded-br-2xl rounded-bl-2xl'>
+        <div className='p-4 bg-white rounded-br-2xl rounded-bl-2xl text-sm'>
           <p className='text-[#102135]'>{answer}</p>
         </div>
       )}
