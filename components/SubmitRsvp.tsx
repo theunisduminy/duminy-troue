@@ -77,11 +77,11 @@ const RsvpForm: React.FC<SubmitMainGuestProps> = ({ onSubmit, language }) => {
           </div>
         )}
 
+        <label className='mb-4 text-lg'>{translation.cellphone_num}</label>
         <input
           className='input border border-[#102135] rounded-lg p-4 w-[100%] h-12 grid text-center'
-          type='text'
           id='name'
-          placeholder={translation.cellphone_num}
+          placeholder='e.g. 0817267083'
           value={guestCellNumber}
           onChange={handleNameChange}
         />

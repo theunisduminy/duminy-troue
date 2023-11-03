@@ -33,6 +33,24 @@ export default function Naweekplan() {
         </div>
         <div className='border-l-4 border-[#f1cdcd] h-10 mx-auto my-4'></div>
 
+        <div>
+          <a
+            href={
+              language === 'afr'
+                ? '/files/naweek_plan.pdf'
+                : '/files/weekend_plan.pdf'
+            }
+            download
+            className='inline-block items-center bg-[#f1cdcd] px-8 py-4 text-center font-semibold text-[#102135] rounded-xl mb-10'
+          >
+            <i className='fa fa-download' aria-hidden='true'></i>
+            {'  '}
+            {language === 'afr'
+              ? 'Kry die naweekplan'
+              : 'Download weekend plan'}
+          </a>
+        </div>
+
         {/* FAQ section */}
         <div className='text-4xl text-[#102135]'>
           <h1>FAQs</h1>
