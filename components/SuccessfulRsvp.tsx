@@ -15,13 +15,12 @@ const SuccessfulRsvp: React.FC = (
 
   return (
     <>
-      <div className='text-center text-lg px-8 pb-10'>
+      <div className='text-center text-lg py-10 px-8'>
         {rsvpStatus ? (
           <>
-            <h3 className='font-bold text-lg'>
-              {guestDetails.data.guest.name}!!
-            </h3>
-            <label className='text-[#102135]'>{personalMessage}</label>
+            <label className='text-center'>{personalMessage}</label>
+            <p className='text-center pt-5'>{translation.next_steps}</p>
+            <p className='text-center pt-5'>{translation.next_steps_2}</p>
           </>
         ) : (
           <label className='text-[#102135]'>

@@ -38,6 +38,7 @@ export default function Registry() {
               href={
                 'https://www.yuppiechef.com/registry.htm?action=view&orderid=7009286'
               }
+              target='_blank'
               className='border-2 border-black inline-block items-center bg-[#f1cdcd] px-8 py-4 text-center font-semibold text-[#102135] rounded-xl mb-10'
             >
               <i className='fa fa-external-link' aria-hidden='true'></i>{' '}

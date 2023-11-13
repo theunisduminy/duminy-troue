@@ -85,6 +85,7 @@ const RsvpForm: React.FC<SubmitMainGuestProps> = ({ onSubmit, language }) => {
       );
     } finally {
       setIsSubmitting(false);
+      window.scrollTo(0, 0);
     }
   };
 
