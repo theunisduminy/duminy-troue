@@ -13,7 +13,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
   };
 
   return (
-    <div className='border rounded-2xl mb-4 w-[85%] max-w-[85%] text-[#102135]'>
+    <div className='border-2 border-black rounded-2xl mb-4 w-[85%] max-w-[85%] text-[#102135]'>
       <button
         className={`w-full text-left p-4 bg-[#f1cdcd] text-[#102135] focus:outline-none ${
           !isOpen ? 'rounded-2xl' : 'rounded-tl-2xl rounded-tr-2xl'

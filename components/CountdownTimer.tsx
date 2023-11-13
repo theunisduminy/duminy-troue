@@ -31,7 +31,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
   }, []);
 
   const timerStyling =
-    'border border-solid border-black w-16 p-1 h-16 mx-1 bg-[#f1cdcd] rounded-xl';
+    'border-2 border-solid border-black w-16 p-1 h-16 mx-1 bg-[#f1cdcd] rounded-xl';
 
   return (
     <div className='flex justify-center py-5'>

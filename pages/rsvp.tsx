@@ -67,7 +67,10 @@ export default function Rsvp() {
         </div>
       </main>
       <footer className='border-solid border-t-2 border-[#102135]'>
-        <span>Gebou deur Theunis.</span>
+        <span>
+          Gebou met <i className='fa fa-heart' aria-hidden='true'></i> deur
+          Theunis, 2023.
+        </span>
       </footer>
     </>
   );

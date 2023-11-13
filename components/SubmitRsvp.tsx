@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getGuest } from '../lib/utils/guestRequests';
 import { updateGuest } from '../lib/utils/guestRequests';
 import SelectButtonComponent from './SelectionButtons';
@@ -15,7 +15,8 @@ interface SubmitMainGuestProps {
 }
 
 const RsvpForm: React.FC<SubmitMainGuestProps> = ({ onSubmit, language }) => {
-  const [guestCellNumber, setGuestCellNumber] = useState('');
+  const [guestCellNumber, setGuestCellNumber] = useState<string>('');
+  const [guestName, setGuestName] = useState('');
   const [isAttending, setIsAttending] = useState<boolean | undefined>();
   const [isVegetarian, setGuestDiet] = useState<boolean | undefined>();
   const [error, setError] = useState<string>('');
@@ -23,10 +24,32 @@ const RsvpForm: React.FC<SubmitMainGuestProps> = ({ onSubmit, language }) => {
 
   const translation = getTranslation(language);
 
-  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleNameChange = async (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     setGuestCellNumber(event.target.value);
     setError('');
   };
+
+  useEffect(() => {
+    async function getNameOfGuest() {
+      try {
+        const data = await getGuest(guestCellNumber);
+        const nameOfGuest = data.data.guest.name;
+        const firstWord = nameOfGuest.split(' ')[0];
+        const capitalizedFirstWord =
+          firstWord.charAt(0).toUpperCase() + firstWord.slice(1);
+
+        setGuestName(capitalizedFirstWord);
+      } catch (error) {
+        console.error('Error fetching top name:', error);
+      }
+    }
+
+    if (guestCellNumber) {
+      getNameOfGuest();
+    }
+  }, [guestCellNumber]);
 
   const handleDietChange = (isVegetarian: boolean) => {
     setGuestDiet(isVegetarian);
@@ -79,7 +102,7 @@ const RsvpForm: React.FC<SubmitMainGuestProps> = ({ onSubmit, language }) => {
 
         <label className='mb-4 text-lg'>{translation.cellphone_num}</label>
         <input
-          className='input border border-[#102135] rounded-lg p-4 w-[100%] h-12 grid text-center'
+          className='input border-[#102135] border-2 rounded-lg p-4 w-[100%] h-12 grid text-center'
           id='name'
           placeholder='e.g. 0817267083'
           value={guestCellNumber}
@@ -87,6 +110,18 @@ const RsvpForm: React.FC<SubmitMainGuestProps> = ({ onSubmit, language }) => {
         />
 
         <div className='border-l-4 border-[#f1cdcd] h-8 mx-auto my-4'></div>
+
+        {guestName !== '' && (
+          <>
+            <h3 className='text-2xl font-bold'>
+              Hi {guestName.replace(/\b\w/g, (match) => match.toUpperCase())}!
+            </h3>
+            <i
+              className='fa fa-long-arrow-down text-[#f1cdcd] text-3xl mt-4'
+              aria-hidden='true'
+            ></i>
+          </>
+        )}
 
         <SelectButtonComponent
           selection={isAttending}

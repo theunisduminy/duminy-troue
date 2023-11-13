@@ -9,8 +9,6 @@ export async function getGuest(cellNumber: string) {
   const trimmedNumber = cellNumber.trim();
   const normalizedNumber = normalizePhoneNumber(trimmedNumber);
 
-  console.log(normalizedNumber);
-
   const response = await fetch(
     `/api/guests/${encodeURIComponent(normalizedNumber) || 'wrong'}`,
     {

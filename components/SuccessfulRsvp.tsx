@@ -13,13 +13,16 @@ const SuccessfulRsvp: React.FC = (
       ? guestDetails.data.guest.message
       : translation.successfulRsvp;
 
-  console.log(rsvpStatus);
-
   return (
     <>
       <div className='text-center text-lg px-8 pb-10'>
         {rsvpStatus ? (
-          <label className='text-[#102135]'>{personalMessage}</label>
+          <>
+            <h3 className='font-bold text-lg'>
+              {guestDetails.data.guest.name}!!
+            </h3>
+            <label className='text-[#102135]'>{personalMessage}</label>
+          </>
         ) : (
           <label className='text-[#102135]'>
             {translation.unSuccessfulRsvp}

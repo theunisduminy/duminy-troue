@@ -41,13 +41,12 @@ export default function Naweekplan() {
                 : '/files/weekend_plan.pdf'
             }
             download
-            className='inline-block items-center bg-[#f1cdcd] px-8 py-4 text-center font-semibold text-[#102135] rounded-xl mb-10'
+            className='inline-block border-2 border-black items-center bg-[#f1cdcd] px-4 py-4 text-center font-semibold text-[#102135] rounded-xl mb-10'
           >
-            <i className='fa fa-download' aria-hidden='true'></i>
-            {'  '}
+            <i className='fa fa-download' aria-hidden='true'></i>{' '}
             {language === 'afr'
-              ? 'Kry die naweekplan'
-              : 'Download weekend plan'}
+              ? 'Kry die naweekplan & kleredragkode'
+              : 'Download weekend plan & dress code'}
           </a>
         </div>
 
@@ -61,7 +60,10 @@ export default function Naweekplan() {
         })}
       </main>
       <footer className='border-solid border-t-2 border-[#102135]'>
-        <span>Gebou deur Theunis.</span>
+        <span>
+          Gebou met <i className='fa fa-heart' aria-hidden='true'></i> deur
+          Theunis, 2023.
+        </span>
       </footer>
     </>
   );

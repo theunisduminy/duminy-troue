@@ -1,4 +1,6 @@
 {
+  "registry_gift": "Indien jy graag 'n geskenk wil koop, kyk gerus na die registry hieronder vir goedjies wat ons graag sal wil hê.",
+  "registry_bank": "Andersins, as jy eerder 'n geldjie vir ons wil inbetaal, gebruik gerus die bankbesonderhede hieronder.",
   "month": "Maart",
   "home_title": "TROU!",
   "rsvp_header": "RSVP",
@@ -40,11 +42,11 @@
     },
     {
       "question": "Waar in Matjiesfontein troue julle?",
-      "answer": "Ons gaste neem die hele Matjiesfontein oor vir die naweek, en elke event gaan op 'n verskilende deel van Matjiesfontein plaas vind"
+      "answer": "Ons gaste neem die hele Matjiesfontein oor vir die naweek, en elke event gaan op 'n verskilende area in Matjiesfontein plaas vind"
     },
     {
       "question": "Hoelaat moet ons Vrydag daar wees?",
-      "answer": "Ons eerste event begin 17:00 Vrydag voor die Lord Milner Hotel"
+      "answer": "Ons eerste event begin 17:00 Vrydag by die Lord Milner Hotel"
     },
     {
       "question": "Kan ons Vrydag vroeër al kom?",
@@ -60,11 +62,11 @@
     },
     {
       "question": "Waar eet ons ontbyt, en van hoelaat af?",
-      "answer": "Ontbyt word bedien in die eetkamer van die Hotel vanaf 8:00 tot 10:00 elke oggend. Gaste hoef nie vir die ontbyt te betaal nie, dit is ingesluit by die prys van die kamers"
+      "answer": "Ontbyt word bedien in die eetkamer van die Hotel vanaf 7:30 tot 10:30 elke oggend. Gaste hoef nie vir die ontbyt te betaal nie, dit is ingesluit by die prys van die kamers"
     },
     {
       "question": "Hoe laat moet ons reg wees vir die troue Saterdag?",
-      "answer": "Ons gaste moet teen 14:00 reg wees voor die Hotel, en sal dan gevat word na die seremonie venue toe"
+      "answer": "Ons gaste moet teen 14:30 reg wees voor die Hotel, en sal dan gevat word na die seremonie venue toe"
     },
     {
       "question": "Sal daar 'n kontant kroeg wees?",

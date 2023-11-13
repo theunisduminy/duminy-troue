@@ -28,11 +28,10 @@ export default function Home() {
       <main className='bg-[#EFDDCD] pt-5 mb-12'>
         <LanguageSwitchButtons />
 
-        <div className='text-7xl pt-10 pb-5 text-[#102135]'>
+        <div className='text-7xl pt-10 pb-10 text-[#102135]'>
           <h1>Theunis</h1>
           <h1>&</h1>
           <h1>Mignon</h1>
-          {/* <h1 className='pt-10 text-center'>{weddingTitle} 💍</h1> */}
         </div>
         <Header link='theunis-mignon-min.png' />
 
@@ -49,7 +48,7 @@ export default function Home() {
           <div className='text-center max-w-2xl mx-auto flex flex-col items-center justify-center pb-10'>
             <img
               src='./images/lord-milner-no-bg-min.png'
-              className='w-[80%] md:w-70 md:px-20'
+              className='pb-5 w-[80%] md:w-70 md:px-20'
               alt='Header Image'
             />
             <div className='px-10 text-lg'>
@@ -71,7 +70,10 @@ export default function Home() {
       </main>
       {/* Footer element */}
       <footer className='border-solid border-t-2 border-[#102135]'>
-        <span>Gebou deur Theunis.</span>
+        <span>
+          Gebou met <i className='fa fa-heart' aria-hidden='true'></i> deur
+          Theunis, 2023.
+        </span>
       </footer>
     </>
   );
