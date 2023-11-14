@@ -15,7 +15,7 @@ export default function Home() {
   const locationLink =
     'https://www.google.com/maps/place/Lord+Milner+Hotel+(Matjiesfontein)/@-33.2310257,20.5799933,17z/data=!3m1!4b1!4m9!3m8!1s0x1dd3110f98e906e5:0x40d4cb7334e175dd!5m2!4m1!1i2!8m2!3d-33.2310302!4d20.582182!16s%2Fg%2F1tc_hj29';
 
-  const isAfrikaans = language === 'afr';
+  const animate = 'animate-fade-right animate-duration-1000';
 
   return (
     <>
@@ -33,14 +33,19 @@ export default function Home() {
         <LanguageSwitchButtons />
 
         <div className='text-7xl pt-16 pb-10 text-center text-[#102135]'>
-          <h1 className='pb-2'>Theunis</h1>
-          <h1 className='pb-2'>&</h1>
-          <h1>Mignon</h1>
-          <div className='border-l-4 border-black flex flex-col h-32 ml-[50%] my-10'></div>
-          <h3 className='text-3xl'>
+          <h1 className={`${animate} animate-delay-[200ms] pb-2`}>Theunis</h1>
+          <h1 className={`${animate} animate-delay-[800ms] pb-2`}>&</h1>
+          <h1 className={`${animate} animate-delay-[1400ms] pb-2`}>Mignon</h1>
+          <div
+            className={`animate-fade-up animate-duration-500 animate-delay-[2000ms] border-l-4 border-black flex flex-col h-32 ml-[50%] my-10`}
+          ></div>
+          <h3
+            className={`animate-flip-up animate-duration-[1500ms] animate-delay-[2600ms] text-3xl`}
+          >
             {language === 'afr' ? 'gaan trou' : 'are getting married'}!
           </h3>
         </div>
+
         <Header link='theunis-mignon-min.png' />
 
         {/* Date + counter */}
