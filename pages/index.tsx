@@ -36,7 +36,7 @@ export default function Home() {
           <h1 className='pb-2'>Theunis</h1>
           <h1 className='pb-2'>&</h1>
           <h1>Mignon</h1>
-          <div className='border-l-4 border-black flex flex-col h-28 ml-[50%] my-10'></div>
+          <div className='border-l-4 border-black flex flex-col h-32 ml-[50%] my-10'></div>
           <h3 className='text-3xl'>
             {language === 'afr' ? 'gaan trou' : 'are getting married'}!
           </h3>
