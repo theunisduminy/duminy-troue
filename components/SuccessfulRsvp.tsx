@@ -8,17 +8,26 @@ const SuccessfulRsvp: React.FC = (
   // variables
   const translation = getTranslation(language);
   const rsvpStatus = guestDetails.data.guest.rsvp;
-  const personalMessage =
-    guestDetails.data.guest.message !== 'geen'
-      ? guestDetails.data.guest.message
-      : translation.successfulRsvp;
+  const guestName = guestDetails.data.guest.name;
+  const guestFirstName = guestName.split(' ')[0];
+  const capitalizedName =
+    guestFirstName.charAt(0).toUpperCase() + guestFirstName.slice(1);
 
   return (
     <>
       <div className='text-center text-lg py-10 px-8'>
         {rsvpStatus ? (
           <>
-            <label className='text-center'>{personalMessage}</label>
+            <p className='mb-5 p-3 text-lg border-2 border-black rounded-xl'>
+              {language === 'afr'
+                ? `Dankie ${capitalizedName}, RSVP Suksesvol`
+                : `Thank you, ${capitalizedName} - RSVP Successful!`}{' '}
+              <i
+                className='fa fa-check-square-o text-green-500'
+                aria-hidden='true'
+              ></i>
+            </p>
+            <p className='text-center'>{translation.successfulRsvp}</p>
             <p className='text-center pt-5'>{translation.next_steps}</p>
             <p className='text-center pt-5'>{translation.next_steps_2}</p>
           </>

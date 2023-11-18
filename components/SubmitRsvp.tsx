@@ -108,6 +108,8 @@ const RsvpForm: React.FC<SubmitMainGuestProps> = ({ onSubmit, language }) => {
           placeholder='e.g. 0817267083'
           value={guestCellNumber}
           onChange={handleNameChange}
+          type='text'
+          inputMode='numeric'
         />
 
         <div className='border-l-4 border-[#f1cdcd] h-8 mx-auto my-4'></div>

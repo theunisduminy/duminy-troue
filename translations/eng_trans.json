@@ -1,5 +1,5 @@
 {
-  "next_steps": "We're going to send you more information, including how to pay for your accommodation. Remember, everyone has a place to sleep the entire weekend so you don't have to worry about trying to organizing this.",
+  "next_steps": "We're going to send you more information over WhatsApp, including how to pay for your accommodation.",
   "next_steps_2": "Please follow the links below if you'd like to RSVP for someone else, have a look at the weekend plan or find some gift ideas.",
   "registry_gift": "If you'd like to buy a gift for us, please have a look at the registry below for some presents we'd love.",
   "registry_bank": "Otherwise, if you'd rather want to gift some money, please use the bank details below.",
@@ -23,7 +23,7 @@
   "home_sub": "Navigate back to the home page of the site",
   "number_error": "Please check if your number is correct. It has to start with a ZERO.",
   "rsvp_error": "Please indicate if you can come and your dietary requirements",
-  "successfulRsvp": "Thanks, we are very excited to celebrate our big day with you!",
+  "successfulRsvp": "We are very excited to celebrate our big day with you!",
   "unSuccessfulRsvp": "Thanks for letting us know. We're very sad we won't be able to celebrate our big day with you.",
   "faq": [
     {

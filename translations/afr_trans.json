@@ -1,5 +1,5 @@
 {
-  "next_steps": "Ons gaan verdere inligting vir jou stuur oor WhatsApp insluitend hoe om te betaal vir akkomodasie. Onthou almal het plek om te slaap die hele naweek so jy hoef nie te worry oor self dit te probeer reël nie.",
+  "next_steps": "Ons gaan verdere inligting vir jou stuur oor WhatsApp insluitend hoe om te betaal vir akkomodasie.",
   "next_steps_2": "Kyk gerus na die links hieronder as jy vir nog iemand wil RSVP, kyk na die naweekplan of geskenk idees wil vind.",
   "registry_gift": "Indien jy graag 'n geskenk wil koop, kyk gerus na die registry hieronder vir goedjies wat ons graag sal wil hê.",
   "registry_bank": "Andersins, as jy eerder 'n geldjie vir ons wil inbetaal, gebruik gerus die bankbesonderhede hieronder.",
@@ -23,19 +23,7 @@
   "home_sub": "Gaan terug na die eerste blad - die Home page",
   "number_error": "Kyk of jou nommer reg is, asseblief. Dit moet met 'n NULL begin.",
   "rsvp_error": "Laat weet of jy kan kom en of jy enige dieet vereistes het",
-  "vrydag": {
-    "date": "Vrydag, 22 Maart 2024",
-    "copy": "Dis 'n langnaweek - sit verlof in! Almal kan in boek by hulle akkomodasie van 15:00 af en die aand 'n heerlike spit geniet. Alhoewel ons in die Karoo is, gaan ons nogsteeds Heidelberg lam eet."
-  },
-  "saterdag": {
-    "date": "Saterdag, 23 Maart 2024",
-    "copy": "Die groot dag. Ontbyt begin van 08:00 af in die hotel. Hou jouself gerus besig met al die aktiwiteite in Matjiesfontein, maar maak seker dat jy 15:00 aangetrek en reg is om te kom kyk hoe ek en Mignon trou."
-  },
-  "sondag": {
-    "date": "Sondag, 24 Maart 2024",
-    "copy": "Gaan vat 'n dip in die swembad om daai babbelas af te spoel. Ontbyt begin weer van 08:00 af. Veilig terug ry, en dankie dat jy ons spesiale naweek bygewoon het."
-  },
-  "successfulRsvp": "Dankie, ons sien baie uit om saam jou ons groot dag te vier!",
+  "successfulRsvp": "Ons sien baie uit om saam jou ons groot dag te vier!",
   "unSuccessfulRsvp": "Dankie vir die laat weet. Ons is hartseer dat jy nie saam ons die dag sal kan vier nie.",
   "faq": [
     {
