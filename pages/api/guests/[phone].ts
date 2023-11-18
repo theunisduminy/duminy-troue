@@ -9,11 +9,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const db = client.db('wedding');
 
     if (req.method === 'GET') {
-      guest = await db.collection('guest-test').findOne({ phone });
+      guest = await db.collection('guests').findOne({ phone });
     }
 
     if (req.method === 'PATCH') {
-      guest = await db.collection('guest-test').findOneAndUpdate(
+      guest = await db.collection('guests').findOneAndUpdate(
         { phone },
         { $set: req.body },
         {
